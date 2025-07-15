@@ -1,0 +1,517 @@
+{
+    "states": [
+      {
+        "state": "Maharashtra",
+        "regions": [
+          {
+            "region": "Andheri West",
+            "hospitals": [
+              {
+                "hospital_name": "Apollo Hospital, Andheri",
+                "imageURL": "https://via.placeholder.com/300x180?text=Apollo+Andheri",
+                "contact": {
+                  "phone": "+91-2222222222",
+                  "email": "info@apolloandheri.org",
+                  "website": "https://apolloandheri.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Breast Cancer",
+                    "department": "Oncology - Breast",
+                    "seatsAvailable": 10,
+                    "bookingUrl": "https://apolloandheri.org/book/breast"
+                  },
+                  {
+                    "cancerType": "Lung Cancer",
+                    "department": "Pulmonary Oncology",
+                    "seatsAvailable": 8,
+                    "bookingUrl": "https://apolloandheri.org/book/lung"
+                  }
+                ]
+              },
+              {
+                "hospital_name": "Lilavati Hospital, Andheri",
+                "imageURL": "https://via.placeholder.com/300x180?text=Lilavati+Andheri",
+                "contact": {
+                  "phone": "+91-3333333333",
+                  "email": "contact@lilavatiandheri.org",
+                  "website": "https://lilavatiandheri.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Ovarian Cancer",
+                    "department": "Gynecologic Oncology",
+                    "seatsAvailable": 5,
+                    "bookingUrl": "https://lilavatiandheri.org/book/ovarian"
+                  },
+                  {
+                    "cancerType": "Prostate Cancer",
+                    "department": "Uro-Oncology",
+                    "seatsAvailable": 7,
+                    "bookingUrl": "https://lilavatiandheri.org/book/prostate"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "region": "Bandra",
+            "hospitals": [
+              {
+                "hospital_name": "Fortis Hospital, Bandra",
+                "imageURL": "https://via.placeholder.com/300x180?text=Fortis+Bandra",
+                "contact": {
+                  "phone": "+91-4444444444",
+                  "email": "info@fortisbandra.org",
+                  "website": "https://fortisbandra.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Leukemia",
+                    "department": "Hematology-Oncology",
+                    "seatsAvailable": 12,
+                    "bookingUrl": "https://fortisbandra.org/book/leukemia"
+                  },
+                  {
+                    "cancerType": "Lymphoma",
+                    "department": "Hematology-Oncology",
+                    "seatsAvailable": 9,
+                    "bookingUrl": "https://fortisbandra.org/book/lymphoma"
+                  }
+                ]
+              },
+              {
+                "hospital_name": "Kokilaben Hospital, Bandra",
+                "imageURL": "https://via.placeholder.com/300x180?text=Kokilaben+Bandra",
+                "contact": {
+                  "phone": "+91-5555555555",
+                  "email": "info@kokilabenbandra.org",
+                  "website": "https://kokilabenbandra.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Head & Neck Cancer",
+                    "department": "Head & Neck Oncology",
+                    "seatsAvailable": 7,
+                    "bookingUrl": "https://kokilabenbandra.org/book/headneck"
+                  },
+                  {
+                    "cancerType": "Skin Cancer",
+                    "department": "Dermato-Oncology",
+                    "seatsAvailable": 6,
+                    "bookingUrl": "https://kokilabenbandra.org/book/skin"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "Delhi",
+        "regions": [
+          {
+            "region": "Connaught Place",
+            "hospitals": [
+              {
+                "hospital_name": "Fortis Escorts, Connaught Place",
+                "imageURL": "https://via.placeholder.com/300x180?text=Fortis+CP",
+                "contact": {
+                  "phone": "+91-6666666666",
+                  "email": "info@fortiscp.org",
+                  "website": "https://fortiscp.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Brain Cancer",
+                    "department": "Neuro-Oncology",
+                    "seatsAvailable": 6,
+                    "bookingUrl": "https://fortiscp.org/book/brain"
+                  },
+                  {
+                    "cancerType": "Liver Cancer",
+                    "department": "Hepato-Oncology",
+                    "seatsAvailable": 8,
+                    "bookingUrl": "https://fortiscp.org/book/liver"
+                  }
+                ]
+              },
+              {
+                "hospital_name": "AIIMS, Connaught Place",
+                "imageURL": "https://via.placeholder.com/300x180?text=AIIMS+CP",
+                "contact": {
+                  "phone": "+91-7777777777",
+                  "email": "info@aiimscp.org",
+                  "website": "https://aiimscp.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Leukemia",
+                    "department": "Hematology-Oncology",
+                    "seatsAvailable": 10,
+                    "bookingUrl": "https://aiimscp.org/book/leukemia"
+                  },
+                  {
+                    "cancerType": "Lymphoma",
+                    "department": "Hematology-Oncology",
+                    "seatsAvailable": 8,
+                    "bookingUrl": "https://aiimscp.org/book/lymphoma"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "region": "Ansari Nagar",
+            "hospitals": [
+              {
+                "hospital_name": "AIIMS, Ansari Nagar",
+                "imageURL": "https://via.placeholder.com/300x180?text=AIIMS+Ansari+Nagar",
+                "contact": {
+                  "phone": "+91-8888888888",
+                  "email": "info@aiims.org",
+                  "website": "https://aiims.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Brain Cancer",
+                    "department": "Neuro-Oncology",
+                    "seatsAvailable": 6,
+                    "bookingUrl": "https://aiims.org/book/brain"
+                  },
+                  {
+                    "cancerType": "Liver Cancer",
+                    "department": "Hepato-Oncology",
+                    "seatsAvailable": 8,
+                    "bookingUrl": "https://aiims.org/book/liver"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "Tamil Nadu",
+        "regions": [
+          {
+            "region": "T. Nagar",
+            "hospitals": [
+              {
+                "hospital_name": "Apollo Hospital, T. Nagar",
+                "imageURL": "https://via.placeholder.com/300x180?text=Apollo+T+Nagar",
+                "contact": {
+                  "phone": "+91-1010101010",
+                  "email": "info@apollotn.org",
+                  "website": "https://apollotn.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Cervical Cancer",
+                    "department": "Gynecologic Oncology",
+                    "seatsAvailable": 10,
+                    "bookingUrl": "https://apollotn.org/book/cervical"
+                  },
+                  {
+                    "cancerType": "Breast Cancer",
+                    "department": "Oncology - Breast",
+                    "seatsAvailable": 11,
+                    "bookingUrl": "https://apollotn.org/book/breast"
+                  }
+                ]
+              },
+              {
+                "hospital_name": "Fortis, T. Nagar",
+                "imageURL": "https://via.placeholder.com/300x180?text=Fortis+T+Nagar",
+                "contact": {
+                  "phone": "+91-1111111111",
+                  "email": "info@fortistn.org",
+                  "website": "https://fortistn.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Prostate Cancer",
+                    "department": "Uro-Oncology",
+                    "seatsAvailable": 7,
+                    "bookingUrl": "https://fortistn.org/book/prostate"
+                  },
+                  {
+                    "cancerType": "Lung Cancer",
+                    "department": "Pulmonary Oncology",
+                    "seatsAvailable": 8,
+                    "bookingUrl": "https://fortistn.org/book/lung"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "region": "Anna Nagar",
+            "hospitals": [
+              {
+                "hospital_name": "Sri Ramachandra Hospital, Anna Nagar",
+                "imageURL": "https://via.placeholder.com/300x180?text=Sri+Ramachandra+Anna+Nagar",
+                "contact": {
+                  "phone": "+91-1212121212",
+                  "email": "info@srianna.org",
+                  "website": "https://srianna.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Thyroid Cancer",
+                    "department": "Endocrine Oncology",
+                    "seatsAvailable": 5,
+                    "bookingUrl": "https://srianna.org/book/thyroid"
+                  },
+                  {
+                    "cancerType": "Lymphoma",
+                    "department": "Hematology-Oncology",
+                    "seatsAvailable": 7,
+                    "bookingUrl": "https://srianna.org/book/lymphoma"
+                  }
+                ]
+              },
+              {
+                "hospital_name": "Chettinad Hospital, Anna Nagar",
+                "imageURL": "https://via.placeholder.com/300x180?text=Chettinad+Anna+Nagar",
+                "contact": {
+                  "phone": "+91-1313131313",
+                  "email": "info@chettinadanna.org",
+                  "website": "https://chettinadanna.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Ovarian Cancer",
+                    "department": "Gynecologic Oncology",
+                    "seatsAvailable": 6,
+                    "bookingUrl": "https://chettinadanna.org/book/ovarian"
+                  },
+                  {
+                    "cancerType": "Breast Cancer",
+                    "department": "Oncology - Breast",
+                    "seatsAvailable": 8,
+                    "bookingUrl": "https://chettinadanna.org/book/breast"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "Karnataka",
+        "regions": [
+          {
+            "region": "Bangalore - Indiranagar",
+            "hospitals": [
+              {
+                "hospital_name": "Manipal Hospital, Indiranagar",
+                "imageURL": "https://via.placeholder.com/300x180?text=Manipal+Indiranagar",
+                "contact": {
+                  "phone": "+91-1414141414",
+                  "email": "info@manipalindira.org",
+                  "website": "https://manipalindira.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Lung Cancer",
+                    "department": "Pulmonary Oncology",
+                    "seatsAvailable": 8,
+                    "bookingUrl": "https://manipalindira.org/book/lung"
+                  },
+                  {
+                    "cancerType": "Breast Cancer",
+                    "department": "Oncology - Breast",
+                    "seatsAvailable": 9,
+                    "bookingUrl": "https://manipalindira.org/book/breast"
+                  }
+                ]
+              },
+              {
+                "hospital_name": "Fortis Hospital, Indiranagar",
+                "imageURL": "https://via.placeholder.com/300x180?text=Fortis+Indiranagar",
+                "contact": {
+                  "phone": "+91-1515151515",
+                  "email": "info@fortisindira.org",
+                  "website": "https://fortisindira.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Liver Cancer",
+                    "department": "Hepato-Oncology",
+                    "seatsAvailable": 7,
+                    "bookingUrl": "https://fortisindira.org/book/liver"
+                  },
+                  {
+                    "cancerType": "Leukemia",
+                    "department": "Hematology-Oncology",
+                    "seatsAvailable": 10,
+                    "bookingUrl": "https://fortisindira.org/book/leukemia"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "region": "Bangalore - Whitefield",
+            "hospitals": [
+              {
+                "hospital_name": "Columbia Asia Hospital, Whitefield",
+                "imageURL": "https://via.placeholder.com/300x180?text=Columbia+Whitefield",
+                "contact": {
+                  "phone": "+91-1616161616",
+                  "email": "info@columbiawhitefield.org",
+                  "website": "https://columbiawhitefield.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Ovarian Cancer",
+                    "department": "Gynecologic Oncology",
+                    "seatsAvailable": 6,
+                    "bookingUrl": "https://columbiawhitefield.org/book/ovarian"
+                  },
+                  {
+                    "cancerType": "Prostate Cancer",
+                    "department": "Uro-Oncology",
+                    "seatsAvailable": 8,
+                    "bookingUrl": "https://columbiawhitefield.org/book/prostate"
+                  }
+                ]
+              },
+              {
+                "hospital_name": "Manipal Hospital, Whitefield",
+                "imageURL": "https://via.placeholder.com/300x180?text=Manipal+Whitefield",
+                "contact": {
+                  "phone": "+91-1717171717",
+                  "email": "info@manipalwhitefield.org",
+                  "website": "https://manipalwhitefield.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Lung Cancer",
+                    "department": "Pulmonary Oncology",
+                    "seatsAvailable": 9,
+                    "bookingUrl": "https://manipalwhitefield.org/book/lung"
+                  },
+                  {
+                    "cancerType": "Lymphoma",
+                    "department": "Hematology-Oncology",
+                    "seatsAvailable": 7,
+                    "bookingUrl": "https://manipalwhitefield.org/book/lymphoma"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "state": "Telangana",
+        "regions": [
+          {
+            "region": "Hyderabad - Banjara Hills",
+            "hospitals": [
+              {
+                "hospital_name": "Max Healthcare, Banjara Hills",
+                "imageURL": "https://via.placeholder.com/300x180?text=Max+Banjara+Hills",
+                "contact": {
+                  "phone": "+91-1818181818",
+                  "email": "info@maxbanjara.org",
+                  "website": "https://maxbanjara.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Colon Cancer",
+                    "department": "Gastrointestinal Oncology",
+                    "seatsAvailable": 5,
+                    "bookingUrl": "https://maxbanjara.org/book/colon"
+                  },
+                  {
+                    "cancerType": "Pancreatic Cancer",
+                    "department": "Oncology - Pancreatic",
+                    "seatsAvailable": 4,
+                    "bookingUrl": "https://maxbanjara.org/book/pancreatic"
+                  }
+                ]
+              },
+              {
+                "hospital_name": "Yashoda Hospitals, Banjara Hills",
+                "imageURL": "https://via.placeholder.com/300x180?text=Yashoda+Banjara+Hills",
+                "contact": {
+                  "phone": "+91-1919191919",
+                  "email": "info@yashodabanjara.org",
+                  "website": "https://yashodabanjara.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Breast Cancer",
+                    "department": "Oncology - Breast",
+                    "seatsAvailable": 8,
+                    "bookingUrl": "https://yashodabanjara.org/book/breast"
+                  },
+                  {
+                    "cancerType": "Lung Cancer",
+                    "department": "Pulmonary Oncology",
+                    "seatsAvailable": 6,
+                    "bookingUrl": "https://yashodabanjara.org/book/lung"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "region": "Hyderabad - Gachibowli",
+            "hospitals": [
+              {
+                "hospital_name": "KIMS Hospital, Gachibowli",
+                "imageURL": "https://via.placeholder.com/300x180?text=KIMS+Gachibowli",
+                "contact": {
+                  "phone": "+91-2020202020",
+                  "email": "info@kimsgachibowli.org",
+                  "website": "https://kimsgachibowli.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Head & Neck Cancer",
+                    "department": "Head & Neck Oncology",
+                    "seatsAvailable": 7,
+                    "bookingUrl": "https://kimsgachibowli.org/book/headneck"
+                  },
+                  {
+                    "cancerType": "Skin Cancer",
+                    "department": "Dermato-Oncology",
+                    "seatsAvailable": 6,
+                    "bookingUrl": "https://kimsgachibowli.org/book/skin"
+                  }
+                ]
+              },
+              {
+                "hospital_name": "Yashoda Hospitals, Gachibowli",
+                "imageURL": "https://via.placeholder.com/300x180?text=Yashoda+Gachibowli",
+                "contact": {
+                  "phone": "+91-2121212121",
+                  "email": "info@yashodagachibowli.org",
+                  "website": "https://yashodagachibowli.org"
+                },
+                "treatments": [
+                  {
+                    "cancerType": "Prostate Cancer",
+                    "department": "Uro-Oncology",
+                    "seatsAvailable": 7,
+                    "bookingUrl": "https://yashodagachibowli.org/book/prostate"
+                  },
+                  {
+                    "cancerType": "Liver Cancer",
+                    "department": "Hepato-Oncology",
+                    "seatsAvailable": 8,
+                    "bookingUrl": "https://yashodagachibowli.org/book/liver"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

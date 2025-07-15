@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accommodation | Cancer Fundraiser Program</title>
+  <meta name="description" content="Search for rental accommodations near hospitals across India with detailed contact info and booking options." />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Variables */
+    :root {
+      --primary-color: #FF69B4;
+      --secondary-color: #e0558e;
+      --dark-color: #333;
+      --light-bg: #f9f9f9;
+      --white: #fff;
+      --font-family: 'Poppins', sans-serif;
+      --transition-speed: 0.3s;
+    }
+    
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: var(--font-family);
+      background: var(--light-bg);
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: var(--dark-color);
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: var(--primary-color);
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Navigation Bar */
+    header {
+      background: var(--white);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    .nav-items {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    nav {
+      margin-right: 1rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a,
+    .dropdown .dropbtn {
+      font-size: 1rem;
+      font-weight: 700;
+      transition: color var(--transition-speed);
+    }
+    nav ul li a:hover,
+    .dropdown .dropbtn:hover {
+      color: var(--primary-color);
+    }
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown .dropbtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--dark-color);
+    }
+    .dropdown .dropdown-content {
+      display: none;
+      position: absolute;
+      background: var(--white);
+      min-width: 180px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      border-radius: 4px;
+      margin-top: 0.5rem;
+      z-index: 1000;
+    }
+    .dropdown .dropdown-content li a {
+      display: block;
+      padding: 0.5rem 1rem;
+      transition: background var(--transition-speed);
+    }
+    .dropdown .dropdown-content li a:hover {
+      background: var(--light-bg);
+      color: var(--primary-color);
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    /* Nav Right: Login/Register & Hamburger */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .login-bar button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--dark-color);
+      transition: color var(--transition-speed);
+    }
+    .login-bar button:hover {
+      color: var(--primary-color);
+    }
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger-menu div {
+      width: 25px;
+      height: 3px;
+      background: var(--dark-color);
+      margin: 4px 0;
+      transition: var(--transition-speed);
+    }
+    
+    /* Mobile Navigation */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        width: 100%;
+      }
+      nav ul {
+        flex-direction: column;
+        background: var(--white);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        border-radius: 4px;
+        overflow: hidden;
+        display: none;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .hamburger-menu {
+        display: flex;
+      }
+    }
+    
+    /* Search Section */
+    .search-section {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: var(--white);
+      padding: 2.5rem 1rem;
+      text-align: center;
+    }
+    .search-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .filters {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .filters select,
+    .filters button {
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .filters select {
+      flex: 1;
+      max-width: 200px;
+    }
+    .filters button {
+      background: var(--white);
+      color: var(--primary-color);
+      font-weight: 700;
+      cursor: pointer;
+      transition: background var(--transition-speed);
+    }
+    .filters button:hover {
+      background: var(--light-bg);
+    }
+    
+    /* Results Section */
+    .results-section {
+      padding: 2rem 1rem;
+    }
+    .results-message {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: var(--dark-color);
+    }
+    .results-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding: 0 1rem;
+    }
+    
+    /* Rental Card */
+    .rental-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform var(--transition-speed);
+    }
+    .rental-card:hover {
+      transform: translateY(-5px);
+    }
+    .rental-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1rem;
+    }
+    .card-content h3 {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    .card-content p {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .book-btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--primary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background var(--transition-speed);
+    }
+    .book-btn:hover {
+      background: var(--secondary-color);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark-color);
+      color: var(--white);
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+    }
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+    footer a {
+      color: var(--white);
+      margin: 0 0.5rem;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">Cancer Fundraiser</div>
+      <div class="nav-items">
+        <nav role="navigation" aria-label="Main Navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+              <button class="dropbtn">Donate</button>
+              <ul class="dropdown-content">
+                <li><a href="donate-to-ngos.html">Donate to NGOs</a></li>
+                <li><a href="donate-to-patients.html">Donate to Patients</a></li>
+              </ul>
+            </li>
+            <!--<li><a href="support.html">Support</a></li>-->
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li class="dropdown">
+              <button class="dropbtn">Our Services</button>
+              <ul class="dropdown-content">
+                <li><a href="accommodation.html" class="active">Accommodation</a></li>
+                <li><a href="therapy.html">Therapy</a></li>
+                <li><a href="financial_funding.html">Financial Funding</a></li>
+                <li><a href="treatment_availability.html">Treatment Availability</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <div class="login-bar">
+          <button id="login-toggle">Sign-In</button>
+        </div>
+        <div class="hamburger-menu" aria-label="Toggle Navigation Menu" tabindex="0">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Search Section with Cascading Filters -->
+  <section class="search-section">
+    <h2>Search for Accommodation Near Hospitals</h2>
+    <div class="filters">
+      <select id="stateSelect">
+        <option value="">Select State</option>
+      </select>
+      <select id="regionSelect" disabled>
+        <option value="">Select Region</option>
+      </select>
+      <select id="hospitalSelect" disabled>
+        <option value="">Select Hospital</option>
+      </select>
+      <button id="searchBtn">Search</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+  </section>
+  
+  <!-- Results Section -->
+  <section class="results-section">
+    <div class="results-message" id="resultsMessage">
+      Please use the search filters above to view available rentals.
+    </div>
+    <div class="results-container" id="resultsContainer">
+      <!-- Rental cards will be dynamically inserted here -->
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Cancer Fundraiser Program. All Rights Reserved.</p>
+  </footer>
+  
+  <!-- JavaScript for Cascading Filters and Navigation -->
+  <script>
+    let accommodations = [];
+    
+    // Fetch dataset from data.json
+    fetch('accodataset.json')
+      .then(response => response.json())
+      .then(data => {
+        accommodations = data.accommodations;
+        populateStateOptions();
+      })
+      .catch(error => console.error('Error loading data:', error));
+    
+    // Populate State dropdown with unique states
+    function populateStateOptions() {
+      const stateSelect = document.getElementById('stateSelect');
+      const states = new Set(accommodations.map(acc => acc.state));
+      states.forEach(state => {
+        const option = document.createElement('option');
+        option.value = state;
+        option.textContent = state;
+        stateSelect.appendChild(option);
+      });
+    }
+    
+    // When state is selected, populate Region dropdown accordingly
+    document.getElementById('stateSelect').addEventListener('change', function() {
+      const selectedState = this.value;
+      const regionSelect = document.getElementById('regionSelect');
+      regionSelect.innerHTML = '<option value="">Select Region</option>';
+      document.getElementById('hospitalSelect').innerHTML = '<option value="">Select Hospital</option>';
+      document.getElementById('hospitalSelect').disabled = true;
+      if(selectedState) {
+        regionSelect.disabled = false;
+        const regions = new Set(
+          accommodations.filter(acc => acc.state === selectedState)
+                        .map(acc => acc.region)
+        );
+        regions.forEach(region => {
+          const option = document.createElement('option');
+          option.value = region;
+          option.textContent = region;
+          regionSelect.appendChild(option);
+        });
+      } else {
+        regionSelect.disabled = true;
+      }
+    });
+    
+    // When region is selected, populate Hospital dropdown accordingly
+    document.getElementById('regionSelect').addEventListener('change', function() {
+      const selectedState = document.getElementById('stateSelect').value;
+      const selectedRegion = this.value;
+      const hospitalSelect = document.getElementById('hospitalSelect');
+      hospitalSelect.innerHTML = '<option value="">Select Hospital</option>';
+      if(selectedState && selectedRegion) {
+        hospitalSelect.disabled = false;
+        const hospitalsSet = new Set();
+        accommodations.filter(acc => acc.state === selectedState && acc.region === selectedRegion)
+                      .forEach(acc => acc.nearbyHospitals.forEach(hosp => hospitalsSet.add(hosp)));
+        hospitalsSet.forEach(hosp => {
+          const option = document.createElement('option');
+          option.value = hosp;
+          option.textContent = hosp;
+          hospitalSelect.appendChild(option);
+        });
+      } else {
+        hospitalSelect.disabled = true;
+      }
+    });
+    
+    // Filter and display results when Search is clicked
+    document.getElementById('searchBtn').addEventListener('click', function() {
+      const selectedState = document.getElementById('stateSelect').value;
+      const selectedRegion = document.getElementById('regionSelect').value;
+      const selectedHospital = document.getElementById('hospitalSelect').value;
+      const filtered = accommodations.filter(acc => {
+        const stateMatch = selectedState ? acc.state === selectedState : true;
+        const regionMatch = selectedRegion ? acc.region === selectedRegion : true;
+        const hospitalMatch = selectedHospital 
+          ? acc.nearbyHospitals.includes(selectedHospital)
+          : true;
+        return stateMatch && regionMatch && hospitalMatch;
+      });
+      displayAccommodations(filtered);
+    });
+    
+    // Reset search filters and clear results
+    document.getElementById('resetBtn').addEventListener('click', function() {
+      document.getElementById('stateSelect').value = "";
+      document.getElementById('regionSelect').innerHTML = '<option value="">Select Region</option>';
+      document.getElementById('regionSelect').disabled = true;
+      document.getElementById('hospitalSelect').innerHTML = '<option value="">Select Hospital</option>';
+      document.getElementById('hospitalSelect').disabled = true;
+      document.getElementById('resultsContainer').innerHTML = "";
+      document.getElementById('resultsMessage').textContent = "Please use the search filters above to view available rentals.";
+    });
+    
+    // Display matching accommodations as rental cards
+    function displayAccommodations(dataToShow) {
+      const container = document.getElementById('resultsContainer');
+      container.innerHTML = "";
+      if(dataToShow.length === 0) {
+        document.getElementById('resultsMessage').textContent = "No accommodations match your criteria.";
+        return;
+      }
+      document.getElementById('resultsMessage').textContent = "";
+      dataToShow.forEach(acc => {
+        const card = document.createElement('div');
+        card.className = 'rental-card';
+        card.innerHTML = `
+          <img src="${acc.imageURL}" alt="Property image">
+          <div class="card-content">
+            <h3>${acc.state}, ${acc.city}</h3>
+            <p><strong>Region:</strong> ${acc.region}</p>
+            <p><strong>Address:</strong> ${acc.address}</p>
+            <p><strong>Nearby Hospitals:</strong> ${acc.nearbyHospitals.join(", ")}</p>
+            <p><strong>Type:</strong> ${acc.rentalDetails.propertyType} | <strong>Bedrooms:</strong> ${acc.rentalDetails.bedrooms}</p>
+            <p><strong>Rent:</strong> ₹${acc.rentalDetails.rent}/month</p>
+            <p><strong>Availability:</strong> ${acc.rentalDetails.availability}</p>
+            <p><strong>Furnished:</strong> ${acc.rentalDetails.furnished ? "Yes" : "No"}</p>
+            <p><strong>Contact:</strong> ${acc.rentalDetails.owner.name}<br>
+            ${acc.rentalDetails.owner.phone}<br>${acc.rentalDetails.owner.email}</p>
+            <button class="book-btn" onclick="window.open('${acc.rentalDetails.bookUrl}', '_blank')">Book Now</button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>

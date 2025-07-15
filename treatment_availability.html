@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Treatment Availability | Cancer Fundraiser Program</title>
+  <meta name="description" content="Check available cancer treatment seats at hospitals. Filter by region and treatment type to view details and book appointments." />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Variables */
+    :root {
+      --primary-color: #FF69B4;
+      --secondary-color: #e0558e;
+      --dark-color: #333;
+      --light-bg: #f9f9f9;
+      --white: #fff;
+      --font-family: 'Poppins', sans-serif;
+      --transition-speed: 0.3s;
+    }
+    /* Global Styles */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-family);
+      background: var(--light-bg);
+      color: var(--dark-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: var(--dark-color); transition: color var(--transition-speed); }
+    a:hover { color: var(--primary-color); }
+    img { max-width: 100%; height: auto; }
+    
+    /* Navigation Bar */
+    header {
+      background: var(--white);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    .nav-items {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    nav {
+      margin-right: 1rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a,
+    .dropdown .dropbtn {
+      font-size: 1rem;
+      font-weight: 700;
+      transition: color var(--transition-speed);
+    }
+    nav ul li a:hover,
+    .dropdown .dropbtn:hover {
+      color: var(--primary-color);
+    }
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown .dropbtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--dark-color);
+    }
+    .dropdown .dropdown-content {
+      display: none;
+      position: absolute;
+      background: var(--white);
+      min-width: 180px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      border-radius: 4px;
+      margin-top: 0.5rem;
+      z-index: 1000;
+    }
+    .dropdown .dropdown-content li a {
+      display: block;
+      padding: 0.5rem 1rem;
+      transition: background var(--transition-speed);
+    }
+    .dropdown .dropdown-content li a:hover {
+      background: var(--light-bg);
+      color: var(--primary-color);
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    /* Nav Right */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .login-bar button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--dark-color);
+      transition: color var(--transition-speed);
+    }
+    .login-bar button:hover { color: var(--primary-color); }
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger-menu div {
+      width: 25px;
+      height: 3px;
+      background: var(--dark-color);
+      margin: 4px 0;
+      transition: var(--transition-speed);
+    }
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-direction: column;
+        background: var(--white);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        border-radius: 4px;
+        overflow: hidden;
+        display: none;
+      }
+      nav ul.show { display: flex; }
+      .hamburger-menu { display: flex; }
+    }
+    
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: var(--white);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+    }
+    
+    /* Filter/Search Section */
+    .filter-section {
+      background: var(--white);
+      padding: 2rem 1rem;
+      margin: 1rem auto;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .filter-section h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      color: var(--primary-color);
+    }
+    .filter-section .filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .filter-section select,
+    .filter-section button {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+    }
+    .filter-section button {
+      background: var(--primary-color);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition-speed);
+    }
+    .filter-section button:hover {
+      background: var(--secondary-color);
+    }
+    
+    /* Results Section */
+    .results-section {
+      padding: 2rem 1rem;
+    }
+    .results-message {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: var(--dark-color);
+    }
+    .results-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding: 0 1rem;
+    }
+    
+    /* Hospital Card */
+    .hospital-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform var(--transition-speed);
+      cursor: pointer;
+    }
+    .hospital-card:hover {
+      transform: translateY(-5px);
+    }
+    .hospital-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1rem;
+      text-align: left;
+    }
+    .card-content h3 {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    .card-content p {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Modal for Hospital Treatment Details */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background: var(--white);
+      margin: 10% auto;
+      padding: 2rem;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 8px;
+      position: relative;
+    }
+    .modal-content .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--dark-color);
+    }
+    .modal-content .close:hover {
+      color: var(--primary-color);
+    }
+    .treatment-details {
+      margin-top: 1rem;
+    }
+    .treatment-details h4 {
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+    .treatment-details p {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .book-btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--primary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background var(--transition-speed);
+    }
+    .book-btn:hover {
+      background: var(--secondary-color);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark-color);
+      color: var(--white);
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+    }
+    footer p { margin-bottom: 0.5rem; }
+    footer a {
+      color: var(--white);
+      margin: 0 0.5rem;
+    }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">Cancer Fundraiser</div>
+      <div class="nav-items">
+        <nav role="navigation" aria-label="Main Navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+              <button class="dropbtn">Donate</button>
+              <ul class="dropdown-content">
+                <li><a href="donate-to-ngos.html">Donate to NGOs</a></li>
+                <li><a href="donate-to-patients.html">Donate to Patients</a></li>
+              </ul>
+            </li>
+            <!--<li><a href="support.html">Support</a></li>-->
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li class="dropdown">
+              <button class="dropbtn">Our Services</button>
+              <ul class="dropdown-content">
+                <li><a href="accommodation.html">Accommodation</a></li>
+                <li><a href="therapy.html">Therapy</a></li>
+                <li><a href="financial_funding.html">Financial Funding</a></li>
+                <li><a href="treatment_availability.html" class="active">Treatment Availability</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <div class="login-bar">
+          <button id="login-toggle">Sign-In</button>
+        </div>
+        <div class="hamburger-menu" aria-label="Toggle Navigation Menu" tabindex="0">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Treatment Availability</h1>
+    <p>Find the best treatment options for various cancer types in hospitals near you.</p>
+  </section>
+  
+  <!-- Filter/Search Section -->
+  <section class="filter-section">
+    <h2>Find Your Treatment Options</h2>
+    <div class="filters">
+      <select id="regionFilter">
+        <option value="">Select Region</option>
+      </select>
+      <select id="cancerTypeFilter" disabled>
+        <option value="">Select Cancer Treatment Type</option>
+      </select>
+      <button id="searchTreatmentBtn">Search</button>
+      <button id="resetTreatmentBtn">Reset</button>
+    </div>
+  </section>
+  
+  <!-- Results Section -->
+  <section class="results-section">
+    <div class="results-message" id="resultsMessage">
+      Please use the filters above to search for available treatment seats.
+    </div>
+    <div class="results-container" id="resultsContainer">
+      <!-- Hospital cards will be inserted here -->
+    </div>
+  </section>
+  
+  <!-- Modal for Hospital Treatment Details -->
+  <div id="detailsModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="modalClose">&times;</span>
+      <div id="modalHospitalDetails">
+        <!-- Hospital treatment details will be loaded here -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Cancer Fundraiser Program. All Rights Reserved.</p>
+  </footer>
+  
+  <!-- JavaScript for Filters and Modal -->
+  <script>
+    let treatmentData = null; // Will hold our JSON dataset from treatment_availability.json
+
+    // Fetch the treatment availability dataset
+    fetch('treatmentdataset.json')
+      .then(response => response.json())
+      .then(data => {
+        treatmentData = data.states;
+        populateRegionFilter();
+        populateCancerTypeFilter(); // Populate all cancer types found across dataset
+      })
+      .catch(error => console.error('Error loading treatment data:', error));
+
+    // Populate the region filter with unique regions across all states
+    function populateRegionFilter() {
+      const regionSelect = document.getElementById('regionFilter');
+      const regions = new Set();
+      treatmentData.forEach(stateObj => {
+        stateObj.regions.forEach(regionObj => regions.add(regionObj.region));
+      });
+      regions.forEach(region => {
+        const option = document.createElement('option');
+        option.value = region;
+        option.textContent = region;
+        regionSelect.appendChild(option);
+      });
+    }
+    
+    // Populate the cancer type filter with unique treatment types across all hospitals in all states
+    function populateCancerTypeFilter() {
+      const typeSelect = document.getElementById('cancerTypeFilter');
+      const types = new Set();
+      treatmentData.forEach(stateObj => {
+        stateObj.regions.forEach(regionObj => {
+          regionObj.hospitals.forEach(hosp => {
+            hosp.treatments.forEach(treatment => types.add(treatment.cancerType));
+          });
+        });
+      });
+      if (types.size > 0) {
+        typeSelect.disabled = false;
+      }
+      types.forEach(type => {
+        const option = document.createElement('option');
+        option.value = type;
+        option.textContent = type;
+        typeSelect.appendChild(option);
+      });
+    }
+    
+    // When Search button is clicked, filter hospitals based on selected region and cancer treatment type
+    document.getElementById('searchTreatmentBtn').addEventListener('click', () => {
+      const selectedRegion = document.getElementById('regionFilter').value;
+      const selectedType = document.getElementById('cancerTypeFilter').value;
+      let filteredHospitals = [];
+      
+      treatmentData.forEach(stateObj => {
+        stateObj.regions.forEach(regionObj => {
+          if(selectedRegion && regionObj.region !== selectedRegion) return;
+          regionObj.hospitals.forEach(hosp => {
+            if(selectedType && !hosp.treatments.some(t => t.cancerType === selectedType)) return;
+            // Attach state and region info to hospital for display
+            hosp.state = stateObj.state;
+            hosp.region = regionObj.region;
+            filteredHospitals.push(hosp);
+          });
+        });
+      });
+      
+      displayHospitals(filteredHospitals, selectedType);
+    });
+    
+    // Reset filters and clear results
+    document.getElementById('resetTreatmentBtn').addEventListener('click', () => {
+      document.getElementById('regionFilter').value = "";
+      document.getElementById('cancerTypeFilter').value = "";
+      document.getElementById('resultsContainer').innerHTML = "";
+      document.getElementById('resultsMessage').textContent = "Please use the filters above to search for available treatment seats.";
+    });
+    
+    // Display hospital cards in the results container
+    function displayHospitals(hospitals, selectedType) {
+      const container = document.getElementById('resultsContainer');
+      container.innerHTML = "";
+      if (hospitals.length === 0) {
+        document.getElementById('resultsMessage').textContent = "No hospitals match your criteria.";
+        return;
+      }
+      document.getElementById('resultsMessage').textContent = "";
+      hospitals.forEach(hosp => {
+        const card = document.createElement('div');
+        card.className = 'hospital-card';
+        card.innerHTML = `
+          <img src="${hosp.imageURL}" alt="${hosp.hospital_name}">
+          <div class="card-content">
+            <h3>${hosp.hospital_name}</h3>
+            <p>${hosp.state}, ${hosp.region}</p>
+          </div>
+        `;
+        // On click, open modal with treatment details for this hospital (only those matching selected type, if provided)
+        card.addEventListener('click', () => openDetailsModal(hosp, selectedType));
+        container.appendChild(card);
+      });
+    }
+    
+    // Open modal and display treatment details for a hospital
+    function openDetailsModal(hospital, selectedType) {
+      const modal = document.getElementById('detailsModal');
+      const modalContent = document.getElementById('modalHospitalDetails');
+      const treatments = selectedType ? hospital.treatments.filter(t => t.cancerType === selectedType) : hospital.treatments;
+      let treatmentsHTML = '';
+      treatments.forEach(t => {
+        treatmentsHTML += `
+          <div class="treatment-details">
+            <h4>${t.cancerType} - ${t.department}</h4>
+            <p><strong>Seats Available:</strong> ${t.seatsAvailable}</p>
+            <p><strong>Contact:</strong> ${t.contact ? t.contact.phone : 'N/A'} | ${t.contact ? t.contact.email : 'N/A'}</p>
+            <a href="${t.bookingUrl}" target="_blank" class="book-btn">Book Now</a>
+          </div>
+        `;
+      });
+      modalContent.innerHTML = `
+        <h2>${hospital.hospital_name}</h2>
+        <p>${hospital.state}, ${hospital.region}</p>
+        ${treatmentsHTML}
+      `;
+      modal.style.display = "block";
+    }
+    
+    // Close the modal when the user clicks on the close button
+    document.getElementById('modalClose').addEventListener('click', () => {
+      document.getElementById('detailsModal').style.display = "none";
+    });
+    
+    // Close the modal when the user clicks outside the modal content
+    window.addEventListener('click', (event) => {
+      const modal = document.getElementById('detailsModal');
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

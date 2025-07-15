@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Financial Funding | Cancer Fundraiser Program</title>
+  <meta name="description" content="Discover our partner NGOs and corporate donations supporting cancer care." />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Variables */
+    :root {
+      --primary-color: #FF69B4;
+      --secondary-color: #e0558e;
+      --dark-color: #333;
+      --light-bg: #f2f2f2;
+      --font-family: 'Poppins', sans-serif;
+      --cursive-font: 'Pacifico', cursive;
+      --gradient-start: #FF69B4;
+      --gradient-end: #e0558e;
+    }
+    /* Global Styles */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-family);
+      background-color: var(--light-bg);
+      color: var(--dark-color);
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: var(--dark-color); transition: color 0.3s ease; }
+    a:hover { color: var(--primary-color); }
+    img { max-width: 100%; height: auto; }
+    /* Header & Navigation */
+    header {
+      position: sticky; top: 0; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
+    nav { display: flex; align-items: center; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav ul li a, .dropdown .dropbtn { font-size: 1rem; font-weight: 700; transition: color 0.3s ease; }
+    /* Dropdown Styles */
+    .dropdown { position: relative; display: inline-block; }
+    .dropdown .dropbtn { background: none; border: none; cursor: pointer; color: var(--dark-color); }
+    .dropdown .dropdown-content {
+      display: none; position: absolute; background: white; min-width: 180px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2); border-radius: 8px; margin-top: 0.5rem; z-index: 1000;
+    }
+    .dropdown .dropdown-content li a { display: block; padding: 0.5rem 1rem; transition: background 0.3s ease; }
+    .dropdown .dropdown-content li a:hover { background: var(--light-bg); color: var(--primary-color); }
+    .dropdown:hover .dropdown-content { display: block; }
+    /* Login Bar */
+    .login-bar { margin-left: 2rem; }
+    .login-bar button {
+      background: none; border: none; font-size: 1rem; font-weight: 700;
+      cursor: pointer; color: var(--dark-color); transition: color 0.3s ease;
+    }
+    .login-bar button:hover { color: var(--primary-color); }
+    /* Hamburger Menu (Mobile) */
+    .hamburger-menu { display: none; flex-direction: column; cursor: pointer; margin-left: 1rem; }
+    .hamburger-menu div { width: 25px; height: 3px; background: var(--dark-color); margin: 4px 0; transition: 0.4s; }
+    /* Hero Section */
+    .hero {
+      text-align: center; padding: 4rem 2rem;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      color: white;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+    /* Tabbed Section for Tables */
+    .tab-container {
+      margin: 2rem auto;
+      max-width: 1000px;
+      background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      border-bottom: 2px solid var(--light-bg);
+    }
+    .tab-buttons button {
+      flex: 1;
+      padding: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark-color);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .tab-buttons button.active {
+      background: var(--primary-color);
+      color: white;
+    }
+    .tab-content { display: none; padding: 1rem; }
+    .tab-content.active { display: block; }
+    /* Catchy Phrase Header */
+    .catchy-header {
+      text-align: center;
+      font-size: 1.4rem;
+      margin: 1rem 0;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+    }
+    table thead {
+      background: var(--primary-color);
+      color: white;
+    }
+    table th, table td {
+      padding: 0.8rem;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+    table tbody tr:nth-child(even) { background: #f9f9f9; }
+    table tbody tr:hover { background: #f1f1f1; }
+    /* Donate Button within Table */
+    .donate-btn {
+      padding: 0.4rem 0.8rem;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background 0.3s ease;
+    }
+    .donate-btn:hover { background: var(--secondary-color); }
+    /* Social Media & Footer (Same as before) */
+    .social-media { background: white; padding: 2rem; text-align: center; }
+    .social-media h2 { margin-bottom: 1.5rem; color: var(--primary-color); font-weight: 700; }
+    .social-icons { display: flex; justify-content: center; gap: 1.5rem; }
+    .social-icons a {
+      width: 40px; height: 40px; background: var(--primary-color);
+      color: white; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .social-icons a:hover { background: var(--secondary-color); transform: translateY(-5px); }
+    footer {
+      text-align: center; padding: 2rem 1rem;
+      background: var(--dark-color); color: white; margin-top: 2rem;
+    }
+    footer p { margin-bottom: 0.5rem; }
+    footer a { color: #fff; margin: 0 0.5rem; }
+    footer a:hover { text-decoration: underline; }
+    /* Modal Styles (Login/Register) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background: white;
+      margin: 10% auto;
+      padding: 2rem;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 8px;
+      position: relative;
+    }
+    .modal-content .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: var(--dark-color);
+      font-size: 28px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .modal-content .close:hover { color: var(--primary-color); }
+    .modal-content form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .modal-content form input {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .modal-content form button {
+      padding: 0.8rem;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: background 0.3s ease;
+    }
+    .modal-content form button:hover { background: var(--secondary-color); }
+    /* Tab Styles for Modal */
+    .tab {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .tab button {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      background: var(--primary-color);
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .tab button:hover { background: var(--secondary-color); }
+    .tab button.active { background: var(--secondary-color); }
+    .tabcontent { display: none; }
+    .tabcontent.active { display: block; }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        border-radius: 8px;
+        overflow: hidden;
+        display: none;
+      }
+      nav ul.show { display: flex; }
+      .hamburger-menu { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">Cancer Fundraiser</div>
+    <nav role="navigation" aria-label="Main Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <button class="dropbtn">Donate</button>
+          <ul class="dropdown-content">
+            <li><a href="donate-to-ngos.html">Donate to NGOs</a></li>
+            <li><a href="donate-to-patients.html">Donate to Patients</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="support.html">Support</a></li>-->
+        <li><a href="contactus.html">Contact Us</a></li>
+        <li class="dropdown">
+          <button class="dropbtn">Our Services</button>
+          <ul class="dropdown-content">
+            <li><a href="accommodation.html">Accommodation</a></li>
+            <li><a href="therapy.html">Therapy</a></li>
+            <li><a href="financial_funding.html" class="active">Financial Funding</a></li>
+            <li><a href="treatment_availability.html">Treatment Availability</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="hamburger-menu" aria-label="Toggle Navigation Menu" tabindex="0">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="login-bar">
+        <button id="login-toggle">Sign-In</button>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Financial Funding</h1>
+      <p>Empowering Change, One Donation at a Time</p>
+    </div>
+  </section>
+  
+  <!-- Main Content: Tabbed Tables -->
+  <main>
+    <div class="tab-container">
+      <div class="tab-buttons">
+        <button class="tablinks active" onclick="openTab(event, 'ngosTable')">NGOs</button>
+        <button class="tablinks" onclick="openTab(event, 'companiesTable')">Companies</button>
+      </div>
+      <!-- NGOs Table Tab -->
+      <div id="ngosTable" class="tab-content active">
+        <div class="catchy-header">Support Vital Causes with a Click</div>
+        <table>
+          <thead>
+            <tr>
+              <th>NGO Name</th>
+              <th>Location</th>
+              <th>Purpose</th>
+              <th>Raised</th>
+              <th>Contact</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="ngos-table-body">
+            <!-- NGO rows inserted dynamically -->
+          </tbody>
+        </table>
+      </div>
+      <!-- Companies Table Tab -->
+      <div id="companiesTable" class="tab-content">
+        <div class="catchy-header">Uniting Companies for a Brighter Future</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Company Name</th>
+              <th>Donated To (NGO ID)</th>
+              <th>Amount</th>
+              <th>Occasion</th>
+              <th>Cause</th>
+              <th>Date</th>
+              <th>Website</th>
+            </tr>
+          </thead>
+          <tbody id="companies-table-body">
+            <!-- Company rows inserted dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Social Media Section -->
+  <section class="social-media">
+    <h2>Connect with Us</h2>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/yourpage" target="_blank" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/yourchannel" target="_blank" aria-label="YouTube" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/yourprofile" target="_blank" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Cancer Fundraiser Program. All Rights Reserved.</p>
+    <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+  </footer>
+  
+  <!-- Login/Register Modal -->
+  <div id="login-modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <span class="close" aria-label="Close Modal">&times;</span>
+      <div class="tab">
+        <button class="tablinks" id="defaultOpen" onclick="openModalTab(event, 'Login')">Login</button>
+        <button class="tablinks" onclick="openModalTab(event, 'Register')">Register</button>
+      </div>
+      <div id="Login" class="tabcontent">
+        <h3>Login</h3>
+        <form id="loginForm">
+          <input type="text" name="username" placeholder="Username" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+      <div id="Register" class="tabcontent">
+        <h3>Register</h3>
+        <form id="registerForm">
+          <input type="text" name="username" placeholder="Username" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Font Awesome for Social Icons -->
+  <script src="https://kit.fontawesome.com/yourfontawesomekit.js" crossorigin="anonymous"></script>
+  
+  <!-- JavaScript -->
+  <script>
+    // Tab Switching for Main Tables
+    function openTab(evt, tabName) {
+      let tabcontents = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < tabcontents.length; i++) {
+        tabcontents[i].classList.remove("active");
+      }
+      let tablinks = document.getElementsByClassName("tablinks");
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+    
+    // Tab Switching for Modal Login/Register
+    function openModalTab(evt, tabName) {
+      let tabcontents = document.querySelectorAll("#login-modal .tabcontent");
+      for (let i = 0; i < tabcontents.length; i++) {
+        tabcontents[i].style.display = "none";
+        tabcontents[i].classList.remove("active");
+      }
+      let tablinks = document.querySelectorAll("#login-modal .tablinks");
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).style.display = "block";
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+    
+    // Open default modal tab
+    document.getElementById("defaultOpen").click();
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      // Hamburger menu toggle
+      const hamburger = document.querySelector('.hamburger-menu');
+      const navLinks = document.querySelector('nav ul');
+      const navLinksList = document.querySelectorAll('nav ul li a');
+      function toggleMenu() {
+        navLinks.classList.toggle('show');
+        hamburger.classList.toggle('active');
+      }
+      hamburger.addEventListener('click', toggleMenu);
+      hamburger.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') { toggleMenu(); }
+      });
+      navLinksList.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('show');
+          hamburger.classList.remove('active');
+        });
+      });
+      
+      // Modal open/close logic
+      const loginToggle = document.getElementById('login-toggle');
+      const loginModal = document.getElementById('login-modal');
+      const closeModal = document.querySelector('.modal-content .close');
+      loginToggle.addEventListener('click', function() {
+        loginModal.style.display = 'block';
+        loginModal.setAttribute('aria-hidden', 'false');
+      });
+      closeModal.addEventListener('click', function() {
+        loginModal.style.display = 'none';
+        loginModal.setAttribute('aria-hidden', 'true');
+      });
+      window.addEventListener('click', function(event) {
+        if (event.target === loginModal) {
+          loginModal.style.display = 'none';
+          loginModal.setAttribute('aria-hidden', 'true');
+        }
+      });
+      
+      // Fetch and populate data from data.json
+      fetch('financialdataset.json')
+        .then(response => response.json())
+        .then(data => {
+          // Populate NGOs Table
+          const ngosBody = document.getElementById('ngos-table-body');
+          data.ngos.forEach(ngo => {
+            let row = document.createElement("tr");
+            row.innerHTML = `
+              <td>${ngo.name}</td>
+              <td>${ngo.location.place}, ${ngo.location.locality}</td>
+              <td>${ngo.purpose}</td>
+              <td>₹${ngo.raisedAmount}</td>
+              <td>${ngo.contact.email}<br/>${ngo.contact.phone}</td>
+              <td><button class="donate-btn" onclick="window.open('${ngo.donateUrl}', '_blank')">Donate Now</button></td>
+            `;
+            ngosBody.appendChild(row);
+          });
+          
+          // Populate Companies Table
+          const companiesBody = document.getElementById('companies-table-body');
+          data.donations.forEach(donation => {
+            let row = document.createElement("tr");
+            row.innerHTML = `
+              <td>${donation.companyName}</td>
+              <td>${donation.ngoId}</td>
+              <td>₹${donation.donationAmount}</td>
+              <td>${donation.occasion}</td>
+              <td>${donation.cause}</td>
+              <td>${donation.donationDate}</td>
+              <td><a href="${donation.companyWebsite}" target="_blank">Visit</a></td>
+            `;
+            companiesBody.appendChild(row);
+          });
+        })
+        .catch(error => console.error('Error loading data:', error));
+      
+      // Login form submission (example, adjust as needed)
+      document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Process login...
+      });
+      
+      // Registration form submission (example, adjust as needed)
+      document.getElementById('registerForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Process registration...
+      });
+    });
+  </script>
+</body>
+</html>

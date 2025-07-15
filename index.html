@@ -1,0 +1,1117 @@
+<!-- L01: Begin index.html -->
+<!DOCTYPE html> <!-- L02 -->
+<html lang="en"> <!-- L03 -->
+<head> <!-- L04 -->
+  <meta charset="UTF-8" /> <!-- L05 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- L06 -->
+  <title>Cancer Fundraiser Program</title> <!-- L07 -->
+  <meta name="description" content="Join us in supporting cancer patients and research through the Cancer Fundraiser Program. Start a fundraiser, donate, or find support." /> <!-- L08 -->
+  <!-- Google Fonts --> <!-- L09 -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"> <!-- L10 -->
+  <style>
+    /* L12: CSS Variables – Using Previous Palette */
+    :root {
+      --primary-color: #EC407A;       /* Vivid pink */
+      --secondary-color: #EC407A;     /* Lighter pink */
+      --accent-color: #F8BBD0;        /* Soft pink accent */
+      --dark-color: #333;
+      --light-bg: #fdfdfd;            /* Off-white background */
+      --font-family: 'Poppins', sans-serif;
+      --gradient-start: #FF69B4;      /* Original bright pink */
+      --gradient-end: #e0558e;        /* Original secondary tone */
+    }
+    
+    /* L25: Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: var(--font-family);
+      background-color: var(--light-bg);
+      color: var(--dark-color);
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: var(--dark-color);
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--primary-color);
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* L42: Header & Navigation – Enhanced (Logo uses text only) */
+    header {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    /* L50: Logo Area – Using text only */
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a,
+    .dropdown .dropbtn {
+      font-size: 1rem;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+    
+    /* L64: Dropdown Styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown .dropbtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--dark-color);
+    }
+    .dropdown .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #ffffff;
+      min-width: 180px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin-top: 0.5rem;
+      z-index: 1000;
+    }
+    .dropdown .dropdown-content li a {
+      display: block;
+      padding: 0.5rem 1rem;
+      transition: background 0.3s ease;
+    }
+    .dropdown .dropdown-content li a:hover {
+      background: var(--accent-color);
+      color: var(--primary-color);
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    /* L87: Login Bar */
+    .login-bar {
+      margin-left: 2rem;
+    }
+    .login-bar button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--dark-color);
+      transition: color 0.3s ease;
+    }
+    .login-bar button:hover {
+      color: var(--primary-color);
+    }
+    
+    /* L101: Hamburger Menu (Mobile) */
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+    .hamburger-menu div {
+      width: 25px;
+      height: 3px;
+      background: var(--dark-color);
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+    
+    /* L110: Hero Section – Enhanced */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 8rem 2rem;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      color: #ffffff;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: -50%;
+      top: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.15), transparent 70%);
+      animation: rotate 30s linear infinite;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      min-height: 3.5rem;
+    }
+    .hero h1::after {
+      content: '';
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background-color: currentColor;
+      margin-left: 5px;
+      animation: blink 1s step-start infinite;
+    }
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+    }
+    .hero button {
+      padding: 0.8rem 1.8rem;
+      background: #ffffff;
+      color: var(--primary-color);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 700;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .hero button:hover {
+      background: var(--accent-color);
+      transform: translateY(-5px);
+    }
+    
+    /* L156: Main Content Sections – Base Styles */
+    main { padding: 2rem; }
+    main section {
+      padding: 3rem 2rem;
+      background: #ffffff;
+      margin-bottom: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    main section h2 {
+      color: var(--primary-color);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+    main section h2::after {
+      content: '';
+      width: 50px;
+      height: 4px;
+      background: var(--primary-color);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+      border-radius: 2px;
+    }
+    main section p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    main section button {
+      padding: 0.8rem 1.5rem;
+      background: var(--primary-color);
+      color: #ffffff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    main section button:hover {
+      background: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+    
+    /* L177: Social Media Section */
+    .social-media {
+      background: #ffffff;
+      padding: 2rem;
+      border-top: 1px solid #eee;
+    }
+    .social-media h2 {
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+    .social-media h2::after {
+      content: '';
+      width: 50px;
+      height: 4px;
+      background: var(--primary-color);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+      border-radius: 2px;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1rem;
+    }
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: var(--primary-color);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .social-icons a:hover {
+      background: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+    
+    /* L195: Footer – Enhanced with Extra Info */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--dark-color);
+      color: #ffffff;
+      margin-top: 2rem;
+    }
+    footer p { margin-bottom: 0.5rem; }
+    footer a { color: #ffffff; margin: 0 0.5rem; }
+    footer a:hover { text-decoration: underline; }
+    .footer-extra {
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+    
+    /* L203: Modal Styles (Login/Register) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background: #ffffff;
+      margin: 10% auto;
+      padding: 2rem;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 8px;
+      position: relative;
+    }
+    .modal-content .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: var(--dark-color);
+      font-size: 28px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .modal-content .close:hover { color: var(--primary-color); }
+    .modal-content form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .modal-content form input {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .modal-content form button {
+      padding: 0.8rem;
+      background: var(--primary-color);
+      color: #ffffff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: background 0.3s ease;
+    }
+    .modal-content form button:hover { background: var(--secondary-color); }
+    
+    /* L227: Tab Styles for Modal */
+    .tab {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .tab button {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      background: var(--primary-color);
+      color: #ffffff;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .tab button:hover { background: var(--secondary-color); }
+    .tab button.active { background: var(--secondary-color); }
+    .tabcontent { display: none; }
+    .tabcontent.active { display: block; }
+    
+    /* L239: Responsive Design */
+    @media (max-width: 1024px) { 
+      .hero h1 { font-size: 2.8rem; } 
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #ffffff;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      nav ul li { border-bottom: 1px solid #f0f0f0; }
+      nav ul li:last-child { border-bottom: none; }
+      nav ul.show { display: flex; }
+      .hamburger-menu { display: flex; }
+      header { padding: 1rem; }
+      .login-bar { display: none; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.3rem; }
+      .hero p { font-size: 1.1rem; }
+      .hero button { font-size: 0.95rem; }
+    }
+    
+    /* ---------- Enhanced New Sections Styles ---------- */
+    
+    /* Impact & Funds Raised Section */
+    #impact-funds.impact-section {
+      padding: 3rem 2rem;
+      text-align: center;
+      background: var(--light-bg);
+    }
+    #impact-funds.impact-section h2 {
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+    }
+    .stats-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .stats-container .stat {
+      background: #ffffff;
+      padding: 1rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 180px;
+    }
+    .stats-container .stat h3 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 0.3rem;
+      white-space: nowrap;
+    }
+    
+    /* Impact & Client Stories Section (Testimonials) */
+    #client-stories.testimonials-section {
+      padding: 3rem 2rem;
+      text-align: center;
+      background: #ffffff;
+    }
+    #client-stories.testimonials-section h2 {
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+    }
+    /* Using grid for alignment */
+    #client-stories .carousel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    #client-stories .carousel .carousel-item {
+      background: var(--accent-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    #client-stories .carousel .carousel-item p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--dark-color);
+    }
+    #client-stories .carousel .carousel-item blockquote {
+      font-style: italic;
+      color: var(--dark-color);
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--primary-color);
+    }
+    
+    /* Zeal & Motivation Section */
+    #zeal-motivation.impact-section {
+      padding: 3rem 2rem;
+      text-align: center;
+      background: var(--light-bg);
+    }
+    #zeal-motivation.impact-section h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    #zeal-motivation.impact-section p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    #zeal-motivation.impact-section button {
+      padding: 0.8rem 1.5rem;
+      background: var(--primary-color);
+      color: #ffffff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    #zeal-motivation.impact-section button:hover {
+      background: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+    
+    /* Additional New Sections */
+    /* Treatment Availability Section */
+    #treatment-availability {
+      padding: 3rem 2rem;
+      text-align: center;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-bottom: 1rem;
+    }
+    #treatment-availability h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    #treatment-availability p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    #treatment-availability img.diagram {
+      max-width: 600px;
+      margin: 0 auto;
+      display: block;
+    }
+    #treatment-availability a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary-color);
+      color: #ffffff;
+      border-radius: 30px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    #treatment-availability a:hover {
+      background: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+    
+    /* Therapy Section */
+    #therapy {
+      padding: 3rem 2rem;
+      text-align: center;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-bottom: 1rem;
+    }
+    #therapy h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    #therapy p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    #therapy img.diagram {
+      max-width: 600px;
+      margin: 0 auto;
+      display: block;
+    }
+    #therapy a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary-color);
+      color: #ffffff;
+      border-radius: 30px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    #therapy a:hover {
+      background: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+    
+    /* What We Offer Section – Enhanced to include more items */
+    #what-we-offer {
+      padding: 3rem 2rem;
+      text-align: center;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-bottom: 1rem;
+    }
+    #what-we-offer h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    #what-we-offer p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    #what-we-offer .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    #what-we-offer .offer-item {
+      background: var(--accent-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+    #what-we-offer .offer-item:hover {
+      transform: translateY(-5px);
+    }
+    #what-we-offer .offer-item img {
+      height: 50px;
+      margin-bottom: 1rem;
+    }
+    #what-we-offer .offer-item h3 {
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+    #what-we-offer .offer-item p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    #what-we-offer .offer-item a {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: var(--primary-color);
+      color: #ffffff;
+      border-radius: 25px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    #what-we-offer .offer-item a:hover {
+      background: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+    
+    /* ---------- End Enhanced New Sections Styles ---------- */
+  </style> <!-- L324 -->
+</head>
+<body>
+  <!-- L326: Header Section – Logo using text only -->
+  <header>
+    <!-- L328: Logo -->
+    <div class="logo">Cancer Fundraiser</div>
+    <!-- L329: Navigation -->
+    <nav role="navigation" aria-label="Main Navigation">
+      <!-- L330 -->
+      <ul>
+        <!-- L331: Donate Dropdown -->
+        <li class="dropdown">
+          <button class="dropbtn">Donate</button>
+          <ul class="dropdown-content">
+            <li><a href="donate-to-ngos.html">Donate to NGOs</a></li>
+            <li><a href="donate-to-patients.html">Donate to Patients</a></li>
+          </ul>
+        </li>
+        <!-- L338 -->
+        <!--<li><a href="support.html">Support</a></li>-->
+        <li><a href="contactus.html">Contact Us</a></li>
+        <!--<li><a href="contact.html">Contact</a></li>-->
+        <!-- L342: Our Services Dropdown -->
+        <li class="dropdown">
+          <button class="dropbtn">Our Services</button>
+          <ul class="dropdown-content">
+            <li><a href="accomodation.html">Accommodation</a></li>
+            <li><a href="therapy.html">Therapy</a></li>
+            <li><a href="financial_funding.html">Financial Funding</a></li>
+            <li><a href="treatment_availability.html">Treatment Availability</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!-- L351: Hamburger Menu & Login Bar -->
+      <div class="hamburger-menu" aria-label="Toggle Navigation Menu" tabindex="0">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="login-bar">
+        <button id="login-toggle">Sign-In</button>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- L361: Hero Section – Enhanced -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1 id="fundraiser-header">Start A Fundraiser</h1>
+      <p>Join us in supporting cancer patients with hope, compassion, and your generosity.</p>
+    </div>
+  </section>
+  
+  <!-- L370: Begin Enhanced Main Content Replacement -->
+  <main>
+    <!-- L371: Impact & Funds Raised Section -->
+    <section id="impact-funds" class="impact-section">
+      <h2>Impact & Funds Raised</h2>
+      <p>Our community’s contributions have raised a remarkable <strong>₹15346</strong> for cancer research and patient support. Every donation makes a life-changing difference.</p>
+      <div class="stats-container">
+        <div class="stat">
+          <h3>₹<span class="counter" data-target="11332">0</span></h3>
+          <p>Total Funds Raised</p>
+        </div>
+        <div class="stat">
+          <h3><span class="counter" data-target="150">0</span>+</h3>
+          <p>Patients Helped</p>
+        </div>
+        <div class="stat">
+          <h3><span class="counter" data-target="20">0</span>+</h3>
+          <p>NGOs Partnered</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- L395: Impact & Client Stories Section -->
+    <section id="client-stories" class="testimonials-section">
+      <h2>Impact & Client Stories</h2>
+      <p>Read real-life testimonials that highlight our program’s transformative impact.</p>
+      <div class="carousel">
+        <div class="carousel-item">
+          <p>"This program provided not only financial help, but also emotional support when I needed it most."</p>
+          <blockquote>— Maria, Patient</blockquote>
+        </div>
+        <div class="carousel-item">
+          <p>"The passion behind this campaign inspired me to contribute – I truly believe in its mission."</p>
+          <blockquote>— John, Donor</blockquote>
+        </div>
+        <div class="carousel-item">
+          <p>"Volunteering here opened my eyes to the strength of community and the genuine care that exists in this program."</p>
+          <blockquote>— Lisa, Volunteer</blockquote>
+        </div>
+      </div>
+    </section>
+    
+    <!-- L422: Zeal & Motivation Section -->
+    <section id="zeal-motivation" class="impact-section">
+      <h2>Our Zeal & Motivation</h2>
+      <p>Driven by hope and compassion, our mission is to bridge the gap between need and support. We celebrate courage and empower communities to transform lives.</p>
+      <p>Join us in making a lasting difference.</p>
+      <button onclick="window.location.href='get-involved.html'">Get Involved</button>
+    </section>
+    
+    <!-- L431: Treatment Availability Section -->
+    <section id="treatment-availability">
+      <h2>Treatment Availability</h2>
+      <p>Discover advanced cancer treatment options, quality care facilities, and the latest research developments. Our platform connects you with trusted providers.</p>
+      <img src="treatment-diagram.png" class="diagram" alt="Treatment Availability Diagram" />
+      <br />
+      <a href="treatment_availability.html">Learn More About Treatment Availability</a>
+    </section>
+    
+    <!-- L441: Therapy Section -->
+    <section id="therapy">
+      <h2>Therapy & Counseling</h2>
+      <p>Access supportive therapy services including counseling, mental health support, and holistic care tailored for cancer patients and their families.</p>
+      <img src="therapy-diagram.png" class="diagram" alt="Therapy Diagram" />
+      <br />
+      <a href="therapy.html">Explore Therapy Services</a>
+    </section>
+    
+    <!-- L451: What We Offer Section – Enhanced with More Items -->
+    <section id="what-we-offer">
+      <h2>What We Offer</h2>
+      <p>Our comprehensive platform provides you with everything you need to launch and manage a successful cancer fundraiser. Explore our services below:</p>
+      <div class="offer-grid">
+        <div class="offer-item">
+          <img src="treatment-icon.png" alt="Treatment Availability" />
+          <h3>Treatment Availability</h3>
+          <p>Learn about state-of-the-art treatments and care facilities.</p>
+          <a href="treatment_availability.html">More Info</a>
+        </div>
+        <div class="offer-item">
+          <img src="therapy-icon.png" alt="Therapy & Counseling" />
+          <h3>Therapy & Counseling</h3>
+          <p>Access professional support and mental health services.</p>
+          <a href="therapy.html">More Info</a>
+        </div>
+        <div class="offer-item">
+          <img src="funding-icon.png" alt="Financial Assistance" />
+          <h3>Financial Assistance</h3>
+          <p>Get guidance on securing grants, sponsorships, and crowdfunding.</p>
+          <a href="financial_funding.html">More Info</a>
+        </div>
+        <div class="offer-item">
+          <img src="accommodation-icon.png" alt="Accommodation & Support" />
+          <h3>Accommodation & Support</h3>
+          <p>Find temporary housing and support services for patients and families.</p>
+          <a href="accomodation.html">More Info</a>
+        </div>
+        <!--<div class="offer-item">
+          <img src="education-icon.png" alt="Educational Resources" />
+          <h3>Educational Resources</h3>
+          <p>Access information, guides, and expert advice on cancer care.</p>
+          <a href="resources.html">More Info</a>
+        </div>
+        <div class="offer-item">
+          <img src="events-icon.png" alt="Community Events" />
+          <h3>Community Events</h3>
+          <p>Engage in our events and workshops to raise awareness and support the cause.</p>
+          <a href="events.html">More Info</a>
+        </div>-->
+      </div>
+    </section>
+  </main>
+  <!-- L463: End Enhanced Main Content Replacement -->
+  
+  <!-- L465: Social Media Section (Leave as is) -->
+  <section class="social-media">
+    <h2>Connect with Us</h2>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/yourpage" target="_blank" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/yourchannel" target="_blank" aria-label="YouTube" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/yourprofile" target="_blank" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+  
+  <!-- L473: Footer – Enhanced -->
+  <footer>
+    <p>&copy; 2025 Cancer Fundraiser Program. All Rights Reserved.</p>
+    <p>
+      <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a>
+    </p>
+    <div class="footer-extra">
+      <p>Empowering communities • Inspiring hope • Transforming lives</p>
+    </div>
+  </footer>
+  
+  <!-- L483: Login/Register Modal (Leave as is) -->
+  <div id="login-modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <span class="close" aria-label="Close Modal">&times;</span>
+      <div class="tab">
+        <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'Login')">Login</button>
+        <button class="tablinks" onclick="openTab(event, 'Register')">Register</button>
+      </div>
+      <div id="Login" class="tabcontent">
+        <h3>Login</h3>
+        <form id="loginForm">
+          <input type="text" name="username" placeholder="Username" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+      <div id="Register" class="tabcontent">
+        <h3>Register</h3>
+        <form id="registerForm">
+          <input type="text" name="username" placeholder="Username" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- L493: Font Awesome for Social Icons -->
+  <script src="https://kit.fontawesome.com/yourfontawesomekit.js" crossorigin="anonymous"></script>
+  
+  <!-- L496: JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Hamburger menu toggle
+      const hamburger = document.querySelector('.hamburger-menu');
+      const navLinks = document.querySelector('nav ul');
+      const navLinksList = document.querySelectorAll('nav ul li a');
+      function toggleMenu() {
+        navLinks.classList.toggle('show');
+        hamburger.classList.toggle('active');
+      }
+      hamburger.addEventListener('click', toggleMenu);
+      hamburger.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') { toggleMenu(); }
+      });
+      navLinksList.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('show');
+          hamburger.classList.remove('active');
+        });
+      });
+      
+      // Modal open/close logic
+      const loginToggle = document.getElementById('login-toggle');
+      const loginModal = document.getElementById('login-modal');
+      const closeModal = document.querySelector('.modal-content .close');
+      loginToggle.addEventListener('click', function() {
+        loginModal.style.display = 'block';
+        loginModal.setAttribute('aria-hidden', 'false');
+      });
+      closeModal.addEventListener('click', function() {
+        loginModal.style.display = 'none';
+        loginModal.setAttribute('aria-hidden', 'true');
+      });
+      window.addEventListener('click', function(event) {
+        if (event.target === loginModal) {
+          loginModal.style.display = 'none';
+          loginModal.setAttribute('aria-hidden', 'true');
+        }
+      });
+      
+      // Login form submission
+      document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const form = event.target;
+        const username = form.username.value;
+        const password = form.password.value;
+        fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          if (data.message === 'Login successful.') {
+            alert('Login successful!');
+            loginModal.style.display = 'none';
+            loginModal.setAttribute('aria-hidden', 'true');
+          } else {
+            alert(data.message);
+          }
+        })
+        .catch(error => console.error('Error:', error));
+      });
+      
+      // Registration form submission
+      document.getElementById('registerForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const form = event.target;
+        const username = form.username.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        fetch('/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, email, password })
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          alert(data.message);
+          if (data.message === 'User registered successfully.') {
+            document.getElementById('defaultOpen').click();
+          }
+        })
+        .catch(error => console.error('Error:', error));
+      });
+    });
+    
+    // Tab switching for Login/Register
+    function openTab(evt, tabName) {
+      const tabcontent = document.getElementsByClassName('tabcontent');
+      for (let i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = 'none';
+        tabcontent[i].classList.remove('active');
+      }
+      const tablinks = document.getElementsByClassName('tablinks');
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove('active');
+      }
+      document.getElementById(tabName).style.display = 'block';
+      document.getElementById(tabName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+    
+    // Open default tab in modal
+    document.getElementById('defaultOpen').click();
+    
+    // Automatic Typing Effect on the Hero Header
+    const fundraiserHeader = document.getElementById('fundraiser-header');
+    const initialText = "Start A Fundraiser";
+    // The phrases to cycle after the initial text is erased:
+    const phrases = ["Donate", "Help", "Raise Funds", "Transform Lives"];
+    const typingSpeed = 150;       // milliseconds per character
+    const erasingSpeed = 75;       // milliseconds per character during erasing
+    const pauseAfterTyping = 1500; // pause after finishing typing a phrase
+    const pauseAfterErasing = 500; // pause after erasing before next phrase
+    
+    let typingTimeout;
+    
+    function typePhrase(element, phrase, callback) {
+      let i = 0;
+      function typeChar() {
+        if (i < phrase.length) {
+          element.textContent += phrase.charAt(i);
+          i++;
+          typingTimeout = setTimeout(typeChar, typingSpeed);
+        } else {
+          setTimeout(callback, pauseAfterTyping);
+        }
+      }
+      typeChar();
+    }
+    
+    function erasePhrase(element, callback) {
+      function eraseChar() {
+        if (element.textContent.length > 0) {
+          element.textContent = element.textContent.slice(0, -1);
+          typingTimeout = setTimeout(eraseChar, erasingSpeed);
+        } else {
+          setTimeout(callback, pauseAfterErasing);
+        }
+      }
+      eraseChar();
+    }
+    
+    function startTypingAnimation(element, phrases, index) {
+      typePhrase(element, phrases[index], function() {
+        erasePhrase(element, function() {
+          let nextIndex = (index + 1) % phrases.length;
+          startTypingAnimation(element, phrases, nextIndex);
+        });
+      });
+    }
+    
+    fundraiserHeader.textContent = initialText;
+    setTimeout(function() {
+      erasePhrase(fundraiserHeader, function() {
+        startTypingAnimation(fundraiserHeader, phrases, 0);
+      });
+    }, 3000);
+    
+    // Animated Counters for Impact Section
+    function animateCounters() {
+      const counters = document.querySelectorAll('.counter');
+      counters.forEach(counter => {
+        const updateCount = () => {
+          const target = +counter.getAttribute('data-target');
+          const count = +counter.innerText;
+          const increment = target / 200;
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 20);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
+    }
+    
+    // Trigger counter animation when the Impact section scrolls into view
+    const impactSection = document.getElementById('impact-funds');
+    window.addEventListener('scroll', () => {
+      const rect = impactSection.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) {
+        animateCounters();
+      }
+    });
+    const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+  counter.innerText = '0';
+
+  const updateCounter = () => {
+    const target = +counter.getAttribute('data-target');
+    const c = +counter.innerText;
+
+    const increment = target / 200;
+
+    if (c < target) {
+      counter.innerText = `${Math.ceil(c + increment)}`;
+      setTimeout(updateCounter, 10);
+    } else {
+      counter.innerText = target;
+    }
+  };
+
+  updateCounter();
+});
+  </script>
+</body>
+<!-- L632 -->
+</html>
+<!-- L633: End of index.html -->

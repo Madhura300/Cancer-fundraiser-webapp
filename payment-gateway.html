@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Gateway - Cancer Fundraiser Program</title>
+  <meta name="description" content="Complete your donation payment securely with our Stripe integration.">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Stripe.js -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <style>
+    :root {
+      --primary-color: #FF69B4;
+      --secondary-color: #e0558e;
+      --dark-color: #333;
+      --light-bg: #f2f2f2;
+      --font-family: 'Poppins', sans-serif;
+    }
+    body {
+      font-family: var(--font-family);
+      background-color: var(--light-bg);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav ul li a {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark-color);
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: var(--primary-color);
+    }
+    main {
+      background: white;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    #card-element {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    #card-errors {
+      color: red;
+      margin-top: 0.5rem;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      background: var(--primary-color);
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: var(--secondary-color);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--dark-color);
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">Cancer Fundraiser</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="donate-to-ngos.html">Donate to NGOs</a></li>
+        <li><a href="donate-to-patients.html">Donate to Patients</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <h2>Complete Your Payment</h2>
+    <form id="payment-form">
+      <div id="card-element"><!-- Stripe Element will be inserted here --></div>
+      <div id="card-errors" role="alert"></div>
+      <button type="submit" id="submit">Pay</button>
+    </form>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Cancer Fundraiser Program. All Rights Reserved.</p>
+  </footer>
+  
+  <script>
+    // Initialize Stripe with your publishable key
+    const stripe = Stripe('pk_test_51QsP7sLp7bINo61WVl7boADBmBBNDUqC2ST6rAUbaPd1286piQSoBOPXaYPw8ZvoEE7pTO1F9Mwy1SABKmyitUTI0057uaIRMn'); // Replace with your actual key
+    const elements = stripe.elements();
+    const cardElement = elements.create('card');
+    cardElement.mount('#card-element');
+    
+    // Retrieve donation amount from URL parameter (e.g., payment-gateway.html?amount=500)
+    const urlParams = new URLSearchParams(window.location.search);
+    const donationAmount = urlParams.get('amount');
+    
+    // Call your backend endpoint to create a PaymentIntent
+    fetch('/create-payment-intent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount: donationAmount })
+    })
+      .then(response => response.json())
+      .then(data => {
+        const clientSecret = data.clientSecret;
+        
+        // Handle form submission to confirm the payment
+        const form = document.getElementById('payment-form');
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          
+          const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: { card: cardElement }
+          });
+          
+          if (error) {
+            // Display error message to the customer
+            document.getElementById('card-errors').textContent = error.message;
+          } else if (paymentIntent && paymentIntent.status === 'succeeded') {
+            // Payment succeeded – show a success message or redirect
+            alert('Payment successful!');
+            window.location.href = 'thank-you.html';
+          }
+        });
+      })
+      .catch(error => console.error('Error:', error));
+  </script>
+</body>
+</html>

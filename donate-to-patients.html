@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate to Patients - Cancer Fundraiser Program</title>
+  <meta name="description" content="Support cancer patients by donating directly to them. Learn about each patient’s story, fundraiser details, and amount raised." />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Variables */
+    :root {
+      --primary-color: #FF69B4;
+      --secondary-color: #e0558e;
+      --dark-color: #333;
+      --light-bg: #f2f2f2;
+      --font-family: 'Poppins', sans-serif;
+      --cursive-font: 'Pacifico', cursive;
+      --gradient-start: #FF69B4;
+      --gradient-end: #e0558e;
+    }
+    
+    /* Global Styles */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-family);
+      background-color: var(--light-bg);
+      color: var(--dark-color);
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: var(--dark-color);
+      transition: color 0.3s ease;
+    }
+    a:hover { color: var(--primary-color); }
+    img { max-width: 100%; height: auto; }
+    
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary-color); }
+    nav { display: flex; align-items: center; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    /* Uniform bold style for nav links and dropdown buttons */
+    nav ul li a, .dropdown .dropbtn {
+      font-size: 1rem;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+    /* Dropdown Styles */
+    .dropdown { position: relative; display: inline-block; }
+    .dropdown .dropbtn { background: none; border: none; cursor: pointer; color: var(--dark-color); }
+    .dropdown .dropdown-content {
+      display: none;
+      position: absolute;
+      background: white;
+      min-width: 180px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      margin-top: 0.5rem;
+      z-index: 1000;
+    }
+    .dropdown .dropdown-content li a {
+      display: block;
+      padding: 0.5rem 1rem;
+      transition: background 0.3s ease;
+    }
+    .dropdown .dropdown-content li a:hover {
+      background: var(--light-bg);
+      color: var(--primary-color);
+    }
+    .dropdown:hover .dropdown-content { display: block; }
+    
+    .login-bar { margin-left: 2rem; }
+    .login-bar button {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--dark-color);
+      transition: color 0.3s ease;
+    }
+    .login-bar button:hover { color: var(--primary-color); }
+    
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+    .hamburger-menu div {
+      width: 25px;
+      height: 3px;
+      background: var(--dark-color);
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+    
+    /* Hero Section */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      color: white;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: -50%;
+      top: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.15), transparent 70%);
+      animation: rotate 30s linear infinite;
+    }
+    @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .hero-content { position: relative; z-index: 1; }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+    .hero button {
+      padding: 0.8rem 1.5rem;
+      background: white;
+      color: var(--primary-color);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .hero button:hover { background: var(--light-bg); transform: translateY(-5px); }
+    
+    /* Main Content: Donate to Patients Page */
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    main h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    main p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+    .donate-section {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .donate-section button {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .donate-section button:hover { background: var(--secondary-color); }
+    
+    /* Patient Cards Section (similar to NGO Cards) */
+    .patient-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .patient-card {
+      position: relative;
+      width: 250px;
+      height: 320px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .patient-card:hover { transform: scale(1.05); }
+    .patient-card .info {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+    .patient-card .info h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .patient-card .info p { font-size: 0.9rem; color: #555; }
+    .patient-card .info .fundraiser-info {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-top: 0.5rem;
+    }
+    .patient-card .overlay {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      transition: bottom 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .patient-card:hover .overlay { bottom: 0; }
+    .overlay .additional-info {
+      font-size: 1rem;
+      color: #444;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    .overlay button {
+      padding: 0.7rem 1.2rem;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+    .overlay button:hover { background: var(--secondary-color); }
+    
+    /* Donation Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 3000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background: #fff;
+      margin: 10% auto;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+    }
+    .modal-content h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+    .modal-content input[type="number"] {
+      width: 80%;
+      padding: 0.75rem;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .modal-content button {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .modal-content button:hover { background: var(--secondary-color); }
+    .modal-content .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark-color);
+    }
+    
+    /* Social Media Section */
+    .social-media {
+      background: white;
+      padding: 2rem;
+    }
+    .social-media h2 {
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+    .social-media h2::after {
+      content: '';
+      width: 50px;
+      height: 4px;
+      background: var(--primary-color);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+      border-radius: 2px;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1rem;
+    }
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: var(--primary-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .social-icons a:hover { background: var(--secondary-color); transform: translateY(-5px); }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--dark-color);
+      color: white;
+      margin-top: 2rem;
+    }
+    footer p { margin-bottom: 0.5rem; }
+    footer a { color: #fff; margin: 0 0.5rem; }
+    footer a:hover { text-decoration: underline; }
+    
+    /* Modal Styles for Login/Register (same as before) */
+    .tab { display: flex; gap: 1rem; justify-content: center; }
+    .tab button {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      background: var(--primary-color);
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .tab button:hover { background: var(--secondary-color); }
+    .tab button.active { background: var(--secondary-color); }
+    .tabcontent { display: none; }
+    .tabcontent.active { display: block; }
+    
+    /* Responsive Design */
+    @media (max-width: 1024px) { .hero h1 { font-size: 2.5rem; } }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      nav ul li { border-bottom: 1px solid #f0f0f0; }
+      nav ul li:last-child { border-bottom: none; }
+      nav ul.show { display: flex; }
+      .hamburger-menu { display: flex; }
+      header { padding: 1rem; }
+      .login-bar { display: none; }
+    }
+    @media (max-width: 480px) {
+      main h1 { font-size: 2rem; }
+      main p { font-size: 1rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .hero button { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header (without Home link) -->
+  <header>
+    <div class="logo">Cancer Fundraiser</div>
+    <nav role="navigation" aria-label="Main Navigation">
+      <ul>
+        <!-- Home link removed per request -->
+        <li class="dropdown">
+          <button class="dropbtn">Donate</button>
+          <ul class="dropdown-content">
+            <li><a href="donate-to-ngos.html">Donate to NGOs</a></li>
+            <li><a href="donate-to-patients.html">Donate to Patients</a></li>
+          </ul>
+        </li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="dropdown">
+          <button class="dropbtn">Our Services</button>
+          <ul class="dropdown-content">
+            <li><a href="accommodation.html">Accommodation</a></li>
+            <li><a href="therapy.html">Therapy</a></li>
+            <li><a href="financial-funding.html">Financial Funding</a></li>
+            <li><a href="treatment-availability.html">Treatment Availability</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="hamburger-menu" aria-label="Toggle Navigation Menu" tabindex="0">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="login-bar">
+        <button id="login-toggle">Login / Register</button>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Hero Section for Donate to Patients -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Donate to Patients</h1>
+      <p>Help cancer patients receive the care they need by donating directly.</p>
+      <button onclick="window.location.href='#patient-cards'">Learn More</button>
+    </div>
+  </section>
+  
+  <!-- Main Content: Patient Cards -->
+  <main id="patient-cards">
+    <section>
+      <h2>Patient Profiles</h2>
+      <p>Hover over each patient card for additional fundraiser details and donation information.</p>
+      <div class="patient-cards">
+        <!-- Patient Card 1 -->
+        <div class="patient-card">
+          <div class="info">
+            <h3>Patient A</h3>
+            <p>Story: Battling cancer with courage</p>
+            <p class="fundraiser-info">Raised: ₹3,000</p>
+          </div>
+          <!-- Overlay on hover -->
+          <div class="overlay">
+            <div class="additional-info">
+              <strong>Fundraiser Info:</strong>
+              <p>Funds needed for treatment and support services.</p>
+            </div>
+            <button onclick="openDonationModal()">Donate Now</button>
+          </div>
+        </div>
+        <!-- Patient Card 2 -->
+        <div class="patient-card">
+          <div class="info">
+            <h3>Patient B</h3>
+            <p>Story: Overcoming obstacles daily</p>
+            <p class="fundraiser-info">Raised: ₹2,200</p>
+          </div>
+          <!-- Overlay on hover -->
+          <div class="overlay">
+            <div class="additional-info">
+              <strong>Fundraiser Info:</strong>
+              <p>Donation required for advanced treatment.</p>
+            </div>
+            <button onclick="openDonationModal()">Donate Now</button>
+          </div>
+        </div>
+        <!-- Patient Card 3 -->
+        <div class="patient-card">
+          <div class="info">
+            <h3>Patient C</h3>
+            <p>Story: Inspiring hope through resilience</p>
+            <p class="fundraiser-info">Raised: ₹4,500</p>
+          </div>
+          <!-- Overlay on hover -->
+          <div class="overlay">
+            <div class="additional-info">
+              <strong>Fundraiser Info:</strong>
+              <p>Needed to cover treatment costs and recovery support.</p>
+            </div>
+            <button onclick="openDonationModal()">Donate Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Donation Modal -->
+  <div id="donationModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="modalClose">&times;</span>
+      <h2>Enter Donation Amount</h2>
+      <input type="number" id="donationAmount" placeholder="Enter amount in INR" min="1">
+      <br>
+      <button id="proceedBtn">Proceed to Payment</button>
+    </div>
+  </div>
+  
+  <!-- Social Media Section -->
+  <section class="social-media">
+    <h2>Connect with Us</h2>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/yourpage" target="_blank" aria-label="Facebook" title="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.youtube.com/yourchannel" target="_blank" aria-label="YouTube" title="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://www.instagram.com/yourprofile" target="_blank" aria-label="Instagram" title="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Cancer Fundraiser Program. All Rights Reserved.</p>
+    <p>
+      <a href="privacy-policy.html">Privacy Policy</a> | 
+      <a href="terms-of-service.html">Terms of Service</a>
+    </p>
+  </footer>
+  
+  <!-- Login/Register Modal -->
+  <div id="login-modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <span class="close" aria-label="Close Modal">&times;</span>
+      <div class="tab">
+        <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'Login')">Login</button>
+        <button class="tablinks" onclick="openTab(event, 'Register')">Register</button>
+      </div>
+      <div id="Login" class="tabcontent">
+        <h3>Login</h3>
+        <form id="loginForm">
+          <input type="text" name="username" placeholder="Username" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+      <div id="Register" class="tabcontent">
+        <h3>Register</h3>
+        <form id="registerForm">
+          <input type="text" name="username" placeholder="Username" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Font Awesome for Social Icons -->
+  <script src="https://kit.fontawesome.com/yourfontawesomekit.js" crossorigin="anonymous"></script>
+  
+  <!-- JavaScript -->
+  <script>
+    // Hamburger menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger-menu');
+      const navLinks = document.querySelector('nav ul');
+      const navLinksList = document.querySelectorAll('nav ul li a');
+      function toggleMenu() {
+        navLinks.classList.toggle('show');
+        hamburger.classList.toggle('active');
+      }
+      hamburger.addEventListener('click', toggleMenu);
+      hamburger.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') { toggleMenu(); }
+      });
+      navLinksList.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('show');
+          hamburger.classList.remove('active');
+        });
+      });
+      
+      // Login/Register Modal Logic
+      const loginToggle = document.getElementById('login-toggle');
+      const loginModal = document.getElementById('login-modal');
+      const closeModal = document.querySelector('.modal-content .close');
+      loginToggle.addEventListener('click', function() {
+        loginModal.style.display = 'block';
+        loginModal.setAttribute('aria-hidden', 'false');
+      });
+      closeModal.addEventListener('click', function() {
+        loginModal.style.display = 'none';
+        loginModal.setAttribute('aria-hidden', 'true');
+      });
+      window.addEventListener('click', function(event) {
+        if (event.target === loginModal) {
+          loginModal.style.display = 'none';
+          loginModal.setAttribute('aria-hidden', 'true');
+        }
+      });
+      
+      // Login Form Submission
+      document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const form = event.target;
+        const username = form.username.value;
+        const password = form.password.value;
+        fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          if (data.message === 'Login successful.') {
+            alert('Login successful!');
+            loginModal.style.display = 'none';
+            loginModal.setAttribute('aria-hidden', 'true');
+          } else { alert(data.message); }
+        })
+        .catch(error => console.error('Error:', error));
+      });
+      
+      // Registration Form Submission
+      document.getElementById('registerForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const form = event.target;
+        const username = form.username.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        fetch('/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, email, password })
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          alert(data.message);
+          if (data.message === 'User registered successfully.') {
+            document.getElementById('defaultOpen').click();
+          }
+        })
+        .catch(error => console.error('Error:', error));
+      });
+      
+      // Open default tab in Login/Register Modal
+      document.getElementById('defaultOpen').click();
+    });
+    
+    // Tab switching for Login/Register
+    function openTab(evt, tabName) {
+      const tabcontent = document.getElementsByClassName('tabcontent');
+      for (let i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = 'none';
+        tabcontent[i].classList.remove('active');
+      }
+      const tablinks = document.getElementsByClassName('tablinks');
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove('active');
+      }
+      document.getElementById(tabName).style.display = 'block';
+      document.getElementById(tabName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+    
+    // Donation Modal Logic for Donate-to-Patients
+    function openDonationModal() {
+      document.getElementById('donationModal').style.display = 'block';
+    }
+    document.getElementById('modalClose').addEventListener('click', function() {
+      document.getElementById('donationModal').style.display = 'none';
+    });
+    window.addEventListener('click', function(event) {
+      if (event.target === document.getElementById('donationModal')) {
+        document.getElementById('donationModal').style.display = 'none';
+      }
+    });
+    document.getElementById('proceedBtn').addEventListener('click', function() {
+      const amount = document.getElementById('donationAmount').value;
+      if (amount && amount > 0) {
+        // Redirect to payment gateway with donation amount in INR
+        window.location.href = 'payment-gateway.html?amount=' + encodeURIComponent(amount);
+      } else {
+        alert('Please enter a valid donation amount in INR.');
+      }
+    });
+  </script>
+</body>
+</html>

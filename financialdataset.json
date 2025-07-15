@@ -1,0 +1,187 @@
+{
+    "ngos": [
+      {
+        "id": 1,
+        "name": "Hope Foundation",
+        "location": {
+          "place": "New York",
+          "locality": "Manhattan"
+        },
+        "purpose": "Supporting cancer research and patient care",
+        "raisedAmount": 100000,
+        "cause": "Cancer Research",
+        "imageURL": "https://via.placeholder.com/150",
+        "contact": {
+          "email": "info@hopefoundation.org",
+          "phone": "123-456-7890",
+          "website": "https://hopefoundation.org"
+        },
+        "description": "Hope Foundation is committed to pioneering new cancer treatments through innovative research and compassionate patient care.",
+        "donateUrl": "https://hopefoundation.org/donate"
+      },
+      {
+        "id": 2,
+        "name": "Charity Works",
+        "location": {
+          "place": "Los Angeles",
+          "locality": "Downtown"
+        },
+        "purpose": "Raising funds for cancer treatments and awareness",
+        "raisedAmount": 75000,
+        "cause": "Cancer Treatment",
+        "imageURL": "https://via.placeholder.com/150",
+        "contact": {
+          "email": "contact@charityworks.org",
+          "phone": "987-654-3210",
+          "website": "https://charityworks.org"
+        },
+        "description": "Charity Works mobilizes resources and community support to improve access to cancer treatment and promote early detection.",
+        "donateUrl": "https://charityworks.org/donate"
+      },
+      {
+        "id": 3,
+        "name": "LifeLine Support",
+        "location": {
+          "place": "Chicago",
+          "locality": "Loop"
+        },
+        "purpose": "Providing financial and emotional support to cancer patients",
+        "raisedAmount": 50000,
+        "cause": "Patient Support",
+        "imageURL": "https://via.placeholder.com/150",
+        "contact": {
+          "email": "support@lifelinesupport.org",
+          "phone": "555-123-4567",
+          "website": "https://lifelinesupport.org"
+        },
+        "description": "LifeLine Support offers counseling, financial aid, and community resources to help cancer patients and their families.",
+        "donateUrl": "https://lifelinesupport.org/donate"
+      },
+      {
+        "id": 4,
+        "name": "Cancer Care India",
+        "location": {
+          "place": "Mumbai",
+          "locality": "Bandra"
+        },
+        "purpose": "Providing comprehensive cancer care and support in India",
+        "raisedAmount": 85000,
+        "cause": "Cancer Care",
+        "imageURL": "https://via.placeholder.com/150",
+        "contact": {
+          "email": "info@cancercareindia.org",
+          "phone": "+91-22-12345678",
+          "website": "https://cancercareindia.org"
+        },
+        "description": "Cancer Care India is dedicated to offering state-of-the-art cancer treatment, palliative care, and community support across India.",
+        "donateUrl": "https://cancercareindia.org/donate"
+      },
+      {
+        "id": 5,
+        "name": "Sankalp Cancer Foundation",
+        "location": {
+          "place": "New Delhi",
+          "locality": "Connaught Place"
+        },
+        "purpose": "Supporting cancer patients with financial aid and awareness programs",
+        "raisedAmount": 65000,
+        "cause": "Financial Aid & Awareness",
+        "imageURL": "https://via.placeholder.com/150",
+        "contact": {
+          "email": "contact@sankalpcancer.org",
+          "phone": "+91-11-87654321",
+          "website": "https://sankalpcancer.org"
+        },
+        "description": "Sankalp Cancer Foundation works tirelessly to raise awareness about cancer and provide financial support to patients in need.",
+        "donateUrl": "https://sankalpcancer.org/donate"
+      },
+      {
+        "id": 6,
+        "name": "Hope in India",
+        "location": {
+          "place": "Bangalore",
+          "locality": "MG Road"
+        },
+        "purpose": "Offering hope and comprehensive support to cancer patients in India",
+        "raisedAmount": 70000,
+        "cause": "Patient Support & Research",
+        "imageURL": "https://via.placeholder.com/150",
+        "contact": {
+          "email": "support@hopeinindia.org",
+          "phone": "+91-80-11223344",
+          "website": "https://hopeinindia.org"
+        },
+        "description": "Hope in India provides holistic care for cancer patients, including financial support, counseling, and access to advanced treatments.",
+        "donateUrl": "https://hopeinindia.org/donate"
+      }
+    ],
+    "donations": [
+      {
+        "id": 1,
+        "companyName": "BigCorp Inc",
+        "ngoId": 1,
+        "donationAmount": 50000,
+        "occasion": "Annual Gala",
+        "cause": "Cancer Research",
+        "imageURL": "https://via.placeholder.com/150",
+        "donationDate": "2023-05-10",
+        "companyWebsite": "https://bigcorp.com"
+      },
+      {
+        "id": 2,
+        "companyName": "Tech Giants Ltd",
+        "ngoId": 2,
+        "donationAmount": 25000,
+        "occasion": "Health Awareness Week",
+        "cause": "Cancer Treatment",
+        "imageURL": "https://via.placeholder.com/150",
+        "donationDate": "2023-06-15",
+        "companyWebsite": "https://techgiants.com"
+      },
+      {
+        "id": 3,
+        "companyName": "Global Enterprises",
+        "ngoId": 1,
+        "donationAmount": 30000,
+        "occasion": "World Cancer Day",
+        "cause": "Cancer Research",
+        "imageURL": "https://via.placeholder.com/150",
+        "donationDate": "2023-10-20",
+        "companyWebsite": "https://globalenterprises.com"
+      },
+      {
+        "id": 4,
+        "companyName": "Tech Innovators India",
+        "ngoId": 4,
+        "donationAmount": 40000,
+        "occasion": "Diwali Charity Drive",
+        "cause": "Cancer Care",
+        "imageURL": "https://via.placeholder.com/150",
+        "donationDate": "2023-11-05",
+        "companyWebsite": "https://techinnovators.in"
+      },
+      {
+        "id": 5,
+        "companyName": "Global Pharma India",
+        "ngoId": 5,
+        "donationAmount": 35000,
+        "occasion": "Cancer Awareness Month",
+        "cause": "Financial Aid & Awareness",
+        "imageURL": "https://via.placeholder.com/150",
+        "donationDate": "2023-09-15",
+        "companyWebsite": "https://globalpharma.in"
+      },
+      {
+        "id": 6,
+        "companyName": "Innovative Solutions",
+        "ngoId": 6,
+        "donationAmount": 45000,
+        "occasion": "End of Year Campaign",
+        "cause": "Patient Support & Research",
+        "imageURL": "https://via.placeholder.com/150",
+        "donationDate": "2023-12-20",
+        "companyWebsite": "https://innovativesolutions.in"
+      }
+    ]
+  }
+  

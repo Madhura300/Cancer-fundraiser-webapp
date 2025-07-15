@@ -1,0 +1,225 @@
+{
+    "accommodations": [
+      {
+        "id": 1,
+        "state": "Maharashtra",
+        "city": "Mumbai",
+        "region": "Andheri West",
+        "address": "123 Marine Drive Road, Andheri West, Mumbai, Maharashtra",
+        "nearbyHospitals": ["Hiranandani Hospital", "Lilavati Hospital"],
+        "rentalDetails": {
+          "propertyType": "Apartment",
+          "bedrooms": 2,
+          "rent": 45000,
+          "availability": "Immediate",
+          "furnished": true,
+          "owner": {
+            "name": "Rajesh Kumar",
+            "phone": "+91-9876543210",
+            "email": "rajesh.kumar@example.com"
+          },
+          "bookUrl": "https://example.com/book/1"
+        },
+        "imageURL": "https://via.placeholder.com/300x180?text=Andheri+West"
+      },
+      {
+        "id": 2,
+        "state": "Maharashtra",
+        "city": "Pune",
+        "region": "Koregaon Park",
+        "address": "456 Fergusson College Road, Koregaon Park, Pune, Maharashtra",
+        "nearbyHospitals": ["Sancheti Hospital", "Ruby Hall Clinic"],
+        "rentalDetails": {
+          "propertyType": "House",
+          "bedrooms": 3,
+          "rent": 55000,
+          "availability": "Available from 2023-12-01",
+          "furnished": false,
+          "owner": {
+            "name": "Sunita Desai",
+            "phone": "+91-9988776655",
+            "email": "sunita.desai@example.com"
+          },
+          "bookUrl": "https://example.com/book/2"
+        },
+        "imageURL": "https://via.placeholder.com/300x180?text=Koregaon+Park"
+      },
+      {
+        "id": 3,
+        "state": "Delhi",
+        "city": "New Delhi",
+        "region": "Connaught Place",
+        "address": "789 Janpath, Connaught Place, New Delhi, Delhi",
+        "nearbyHospitals": ["AIIMS", "Fortis Escorts Heart Institute"],
+        "rentalDetails": {
+          "propertyType": "Apartment",
+          "bedrooms": 2,
+          "rent": 60000,
+          "availability": "Immediate",
+          "furnished": true,
+          "owner": {
+            "name": "Amit Sharma",
+            "phone": "+91-9812345678",
+            "email": "amit.sharma@example.com"
+          },
+          "bookUrl": "https://example.com/book/3"
+        },
+        "imageURL": "https://via.placeholder.com/300x180?text=Connaught+Place"
+      },
+      {
+        "id": 4,
+        "state": "Karnataka",
+        "city": "Bangalore",
+        "region": "Indiranagar",
+        "address": "101 MG Road, Indiranagar, Bangalore, Karnataka",
+        "nearbyHospitals": ["Apollo Hospitals", "Fortis Hospital"],
+        "rentalDetails": {
+          "propertyType": "Condominium",
+          "bedrooms": 3,
+          "rent": 70000,
+          "availability": "Available from 2023-11-15",
+          "furnished": true,
+          "owner": {
+            "name": "Priya Rao",
+            "phone": "+91-9123456789",
+            "email": "priya.rao@example.com"
+          },
+          "bookUrl": "https://example.com/book/4"
+        },
+        "imageURL": "https://via.placeholder.com/300x180?text=Indiranagar"
+      },
+      {
+        "id": 5,
+        "state": "Tamil Nadu",
+        "city": "Chennai",
+        "region": "Adyar",
+        "address": "202 Anna Salai, Adyar, Chennai, Tamil Nadu",
+        "nearbyHospitals": ["MIOT Hospital", "Apollo Hospitals Chennai"],
+        "rentalDetails": {
+          "propertyType": "Apartment",
+          "bedrooms": 2,
+          "rent": 40000,
+          "availability": "Immediate",
+          "furnished": false,
+          "owner": {
+            "name": "Kumar Reddy",
+            "phone": "+91-9876501234",
+            "email": "kumar.reddy@example.com"
+          },
+          "bookUrl": "https://example.com/book/5"
+        },
+        "imageURL": "https://via.placeholder.com/300x180?text=Adyar"
+      },
+      {
+        "id": 6,
+        "state": "Telangana",
+        "city": "Hyderabad",
+        "region": "Banjara Hills",
+        "address": "303, Road Number 1, Banjara Hills, Hyderabad, Telangana",
+        "nearbyHospitals": ["Apollo Health City", "Yashoda Hospitals"],
+        "rentalDetails": {
+          "propertyType": "Villa",
+          "bedrooms": 4,
+          "rent": 85000,
+          "availability": "Available from 2023-12-05",
+          "furnished": true,
+          "owner": {
+            "name": "Suresh Reddy",
+            "phone": "+91-9876543211",
+            "email": "suresh.reddy@example.com"
+          },
+          "bookUrl": "https://example.com/book/6"
+        },
+        "imageURL": "https://via.placeholder.com/300x180?text=Banjara+Hills"
+      },
+      {
+        "id": 7,
+        "state": "West Bengal",
+        "city": "Kolkata",
+        "region": "Salt Lake",
+        "address": "404 Salt Lake City, Kolkata, West Bengal",
+        "nearbyHospitals": ["Apollo Gleneagles Hospital", "Fortis Hospital Kolkata"],
+        "rentalDetails": {
+          "propertyType": "Apartment",
+          "bedrooms": 2,
+          "rent": 35000,
+          "availability": "Immediate",
+          "furnished": true,
+          "owner": {
+            "name": "Arjun Banerjee",
+            "phone": "+91-9876123450",
+            "email": "arjun.banerjee@example.com"
+          },
+          "bookUrl": "https://example.com/book/7"
+        },
+        "imageURL": "https://via.placeholder.com/300x180?text=Salt+Lake"
+      },
+      {
+        "id": 8,
+        "state": "Gujarat",
+        "city": "Ahmedabad",
+        "region": "Satellite",
+        "address": "505 CG Road, Satellite, Ahmedabad, Gujarat",
+        "nearbyHospitals": ["Apollo Hospital Ahmedabad", "Sterling Hospital"],
+        "rentalDetails": {
+          "propertyType": "House",
+          "bedrooms": 3,
+          "rent": 48000,
+          "availability": "Available from 2023-11-20",
+          "furnished": false,
+          "owner": {
+            "name": "Meera Patel",
+            "phone": "+91-9876543222",
+            "email": "meera.patel@example.com"
+          },
+          "bookUrl": "https://example.com/book/8"
+        },
+        "imageURL": "https://via.placeholder.com/300x180?text=Satellite"
+      },
+      {
+        "id": 9,
+        "state": "Punjab",
+        "city": "Chandigarh",
+        "region": "Sector 17",
+        "address": "606 Sector 17, Chandigarh, Punjab",
+        "nearbyHospitals": ["PGIMER", "Fortis Hospital Chandigarh"],
+        "rentalDetails": {
+          "propertyType": "Apartment",
+          "bedrooms": 2,
+          "rent": 40000,
+          "availability": "Immediate",
+          "furnished": true,
+          "owner": {
+            "name": "Harpreet Singh",
+            "phone": "+91-9876543233",
+            "email": "harpreet.singh@example.com"
+          },
+          "bookUrl": "https://example.com/book/9"
+        },
+        "imageURL": "https://via.placeholder.com/300x180?text=Sector+17"
+      },
+      {
+        "id": 10,
+        "state": "Rajasthan",
+        "city": "Jaipur",
+        "region": "C-Scheme",
+        "address": "707 C-Scheme, Jaipur, Rajasthan",
+        "nearbyHospitals": ["Fortis Escorts Hospital Jaipur", "SMS Hospital"],
+        "rentalDetails": {
+          "propertyType": "Apartment",
+          "bedrooms": 2,
+          "rent": 42000,
+          "availability": "Available from 2023-10-15",
+          "furnished": false,
+          "owner": {
+            "name": "Pooja Mehta",
+            "phone": "+91-9876543244",
+            "email": "pooja.mehta@example.com"
+          },
+          "bookUrl": "https://example.com/book/10"
+        },
+        "imageURL": "https://via.placeholder.com/300x180?text=C-Scheme"
+      }
+    ]
+  }
+  
